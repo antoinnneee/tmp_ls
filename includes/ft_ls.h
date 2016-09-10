@@ -8,22 +8,28 @@
 #include <dirent.h>
 #include <errno.h>
 #include <dirent.h>
+#include <sys/stat.h>
+
+/*
+ *	struct : state : 1 = folder, 2 = files, 0 = doesn't exist
+ */
+
 typedef struct	s_arglist{
-	int	state : 2;
-	char	*name;
-	int	len;
-	DIR	*dir;
-	struct s_arglist	*next;	
+	unsigned int		state : 2;
+	char				*name;
+	int					len;
+	DIR					*dir;
+	struct stat			f_stat;
+	struct s_arglist	*next;
 } t_larg;
 
 typedef	struct	s_lsparam{
 	unsigned int	option : 5 ;
-	t_larg		*l_arg;
-	
+	t_larg			*l_arg;
 } t_ls;
 
 
 void	option_parser(char *str, t_ls *option);
 void	arg_parser(int nbarg, char **str);
-t_larg	*filename_parser(char *str, t_ls *ls_param);
+void	push_file_in_list(t_larg *l_arg, char *str);
 #endif

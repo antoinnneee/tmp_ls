@@ -3,6 +3,7 @@
 # define _READ_H
 # include <unistd.h>
 # include "../libft/includes/libft.h"
+# include "./ft_ls.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
@@ -13,8 +14,8 @@ typedef struct	s_container{
 	char		*path;
 	char		*name;
 	struct dirent	*infofile;
-	struct	stat	*fistat;
-	l_container	*next;
+	struct stat	*fistat;
+	struct s_container	*next;
 
 } l_container;
 
@@ -23,7 +24,7 @@ typedef	struct	s_node{
 	char	*name;
 	int	len;
 	l_container	*contain;
-	l_node		*next;
+	struct s_node		*next;
 } l_node;
 
 l_node	*creat_list(t_ls *ls_param);
