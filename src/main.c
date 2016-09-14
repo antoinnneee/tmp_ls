@@ -57,37 +57,57 @@ void	push_file_in_list(t_larg *begin, char *str)
 	return ;
 }
 
-void 	arg_parser(int nbarg, char **str)
+static int	get_option(int nbarg, char **str, t_ls *ls_param)
 {
 	int	arg;
-	t_ls	*ls_param;
-
-	ls_param = (t_ls*)ft_memalloc(sizeof(t_ls));
 	arg = 1;
-	ls_param->option = 0;
-	ls_param->l_arg = NULL;
-	ft_putstrnb("number of arg : ", nbarg);
-	while (nbarg > arg)
+
+	while ((arg < nbarg) && (str[arg][0] == '-'))
 	{
-		if (arg == 1 && str[arg][0] == '-')
-		{
-			option_parser(str[arg], ls_param);
-		}
-		else
-		{
-			if (!ls_param->l_arg)
-				ls_param->l_arg = (t_larg*)ft_memalloc(sizeof(t_larg));
-			push_file_in_list(ls_param->l_arg, str[arg]);
-		}
+		ft_putstr("arg : str ::");
+		ft_putstrnb(str[arg], arg);
+		option_parser(str[arg], ls_param);
 		arg++;
 	}
-	ft_putstrnb("option value : ", ls_param->option);
-	ft_putchar('\n');
+	return (arg);
+
+}
+
+void 	arg_parser(int nbarg, char **str)
+{
+    int	arg;
+    t_ls	*ls_param;
+
+    ls_param = (t_ls*)ft_memalloc(sizeof(t_ls));
+    ls_param->option = 0;
+    ls_param->l_arg = NULL;
+    arg = get_option(nbarg, str, ls_param);
+    if (nbarg == arg)
+	{
+	if (!ls_param->l_arg)
+	    ls_param->l_arg = (t_larg*)ft_memalloc(sizeof(t_larg));
+    push_file_in_list(ls_param->l_arg, "./");
+	}
+    while (arg < nbarg)
+    {
+	if (!ls_param->l_arg)
+	    ls_param->l_arg = (t_larg*)ft_memalloc(sizeof(t_larg));
+	push_file_in_list(ls_param->l_arg, str[arg]);
+	arg++;
+    }
+    ft_putstrnb("option value : ", ls_param->option);
+	l_mod(ls_param->l_arg, &p_elem);
 }
 
 int	main(int a, char **b)
 {
-	arg_parser(a, b);
-	return 0;
+	if (is_sort(b[1], b[2]))
+		ft_putendl("str correctly sort");
+	else
+		ft_putendl("str is not sort");
+//    arg_parser(a, b);
+    return 0;
 }
+
+
 

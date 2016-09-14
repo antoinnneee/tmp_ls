@@ -28,7 +28,9 @@ typedef	struct	s_lsparam{
 	t_larg			*l_arg;
 } t_ls;
 
-
+int	is_sort(char *s1, char *s2);
+void	p_elem(t_larg *elem);
+void	l_mod(t_larg *begin, void (*func)(t_larg*));
 void	option_parser(char *str, t_ls *option);
 void	arg_parser(int nbarg, char **str);
 void	push_file_in_list(t_larg *l_arg, char *str);

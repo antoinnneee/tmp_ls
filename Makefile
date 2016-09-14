@@ -5,15 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abureau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/09/10 16:02:57 by abureau           #+#    #+#              #
-#    Updated: 2016/09/10 16:04:28 by abureau          ###   ########.fr        #
+#    Created: 2016/09/13 19:52:43 by abureau           #+#    #+#              #
+#    Updated: 2016/09/13 19:52:43 by abureau          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = ls
 
 SRC = ./src/main.c \
-	./src/parser.c
+	./src/parser.c \
+	./src/sort.c
 
 CC = gcc
 
