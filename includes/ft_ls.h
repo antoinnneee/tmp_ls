@@ -20,15 +20,24 @@ typedef struct	s_arglist{
 	int					len;
 	DIR					*dir;
 	struct stat			f_stat;
+	struct s_content	*content;
 	struct s_arglist	*next;
 } t_larg;
+
+typedef struct	s_content{
+	char*				name;
+	struct s_content	*next;
+}				t_content;
 
 typedef	struct	s_lsparam{
 	unsigned int	option : 5 ;
 	t_larg			*l_arg;
 } t_ls;
 
-int	is_sort(char *s1, char *s2);
+t_larg	*swap_elem(t_larg *begin, t_larg *prev);
+void	l_sort_alpha(t_larg *elem);
+t_larg*	l_mod2(t_larg *begin, void (*func)(t_larg*));
+int		is_sort(char *s1, char *s2);
 void	p_elem(t_larg *elem);
 void	l_mod(t_larg *begin, void (*func)(t_larg*));
 void	option_parser(char *str, t_ls *option);

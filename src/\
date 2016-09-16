@@ -82,8 +82,7 @@ static t_larg	*sort_first(t_larg *begin, t_larg **adr)
 	begin = tmp;
 	return(begin);
 }
-
-t_larg	*l_mod2(t_larg	*begin, void (*func)(t_larg*))
+void	l_mod2(t_larg	*begin, void (*func)(t_larg*))
 {
 	t_larg	*tmp;
 	t_larg	**t2;
@@ -95,9 +94,9 @@ t_larg	*l_mod2(t_larg	*begin, void (*func)(t_larg*))
 		while (tmp)
 		{
 			if (!tmp->next)
-				return (begin);
+				return ;
 			if (!tmp->next->next)
-				return (begin) ;
+				return ;
 				if (!is_sort(tmp->next->name, tmp->next->next->name))
 				{
 					func(tmp);
@@ -105,8 +104,10 @@ t_larg	*l_mod2(t_larg	*begin, void (*func)(t_larg*))
 					tmp = begin;
 					if (!is_sort(tmp->name, tmp->next->name))
 					{
-							begin = tmp->next;
-							tmp = begin;
+							t2 = &begin;
+							begin->next = tmp->next;
+							tmp->next = begin;
+							t2 = tmp;
 					}
 				}
 				else
@@ -114,7 +115,6 @@ t_larg	*l_mod2(t_larg	*begin, void (*func)(t_larg*))
 		}
 		}
 	}
-	return (begin);
 }
 
 
