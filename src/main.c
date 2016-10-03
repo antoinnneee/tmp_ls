@@ -8,20 +8,20 @@
 #include <sys/dir.h>
 #include <sys/stat.h>
 
-t_content	*creat_content(struct dirent *ent)
+t_larg	*creat_content(struct dirent *ent)
 {
-	t_content	*content;
+	t_larg	*content;
 
-	content = (t_content*) ft_memalloc(sizeof(t_content));
+	content = (t_larg*) ft_memalloc(sizeof(t_larg));
 	content->name = ft_strdup(ent->d_name);
 	content->next = NULL;
 	return (content);
 }
 
-static t_content	*push_content(t_content *begin, struct dirent *str)
+static t_larg	*push_content(t_larg *begin, struct dirent *str)
 {
-	t_content	*tmp;
-	t_content	*index;
+	t_larg	*tmp;
+	t_larg	*index;
 
 	index = begin;
 	tmp = creat_content(str);
@@ -40,53 +40,68 @@ static t_content	*push_content(t_content *begin, struct dirent *str)
 	return (begin);
 }
 
+static void	standardize(char *str)
+{
+	unsigned int	i;
+
+	i = ft_strlen(str);
+	while(i > ft_strlen(str)-2)
+	{
+		if (str[i] == '/' && i > 0)
+			str[i] = '\0';
+		i--;
+	}
+}
+
 static t_larg	*creat_elem(char *str)
 {
 	t_larg	*tmp;
+	DIR	*dir;
 	struct dirent *ent;
-	t_content *cnt;
+	t_larg *cnt;
 
 	tmp = (t_larg*) ft_memalloc(sizeof(t_larg));
 	tmp->name = ft_strdup(str);
-	tmp->len = ft_strlen(str);
-	tmp->dir = opendir(str);
-	stat(tmp->name, &tmp->f_stat);
+	dir = opendir(str);
 	tmp->state = 1;
-	if (tmp->dir == NULL)
+	if (dir == NULL)
 	{
 		if (errno == ENOTDIR)
 			tmp->state = 2;
 		else
 			tmp->state = 0;
-		closedir(tmp->dir);
+			tmp->state = 3;
 	}
 	else
-		while ((ent = readdir(tmp->dir)))
-			push_content(tmp->content, ent);
-	while (tmp->state == 1 && (ent = readdir(tmp->dir)))
 	{
-		if (cnt != NULL)
-		{
-			while (cnt)
-				cnt = cnt->next;
-		}
-			cnt = creat_content(ent);
+		standardize(tmp->name);
+		while ((ent = readdir(dir)))
+			if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, "."))
+			{
+				ft_putendl(ent->d_name);
+				push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name));
+				tmp->content = l_mod2(tmp->content, &l_sort_alpha);
+			}
+		//push_file_in_list(tmp->content, secure_cat(tmp->name, ent->d_name));
 	}
-	tmp->next = NULL;
+	closedir(dir);
 	return (tmp);
 }
 
-void	push_file_in_list(t_larg *begin, char *str)
+void	push_file_in_list(t_larg **begin, char *str)
 {
 	t_larg	*tmp;
 	t_larg	*index;
 
-	index = begin;
+	index = *begin;
 	tmp = creat_elem(str);
 	if (tmp->state)
 	{
 		if (!index)
+		{
+			*begin = tmp;
 			return ;
+		}
 		while (index->next != NULL)
 		{
 			index = index->next;
@@ -120,39 +135,59 @@ static int	get_option(int nbarg, char **str, t_ls *ls_param)
 
 static void	read_content(t_larg *tmp)
 {
-	while (tmp->content)
-	{
-		ft_putendl(tmp->content->name);
-		tmp->content = tmp->content->next;
-	}
+		if (tmp)
+		{
+				if (tmp->state == 1)
+					read_content(tmp->content);
+			ft_putstr("\nFOLDER :: ");
+			ft_putendl(tmp->name);
+			while (tmp->content)
+			{
+				ft_putendl(tmp->content->name);
+				tmp->content = tmp->content->next;
+			}
+			ft_putstr("END OF FOLDER\n\n");
+		}
+}
+
+static void	print_folder(t_larg *tmp)
+{
+	if (tmp->state == 1)
+		ft_putendl(tmp->name);	
+}
+
+static void	print_file(t_larg *tmp)
+{
+	if (tmp->state == 2)
+		ft_putendl(tmp->name);	
 }
 
 void 	arg_parser(int nbarg, char **str)
 {
-    int	arg;
-    t_ls	*ls_param;
+	int		arg;
+	t_ls	*ls_param;
 
-    ls_param = (t_ls*)ft_memalloc(sizeof(t_ls));
-    ls_param->option = 0;
-    ls_param->l_arg = NULL;
-    arg = get_option(nbarg, str, ls_param);
-    if (nbarg == arg)
+	ls_param = (t_ls*)ft_memalloc(sizeof(t_ls));
+	ls_param->option = 0;
+	ls_param->l_arg = NULL;
+	arg = get_option(nbarg, str, ls_param);
+	if (nbarg == arg)
 	{
-		if (!ls_param->l_arg)
-			ls_param->l_arg = (t_larg*)ft_memalloc(sizeof(t_larg));
-		push_file_in_list(ls_param->l_arg, "./");
+		push_file_in_list(&ls_param->l_arg, "./");
 	}
     while (arg < nbarg)
     {
-	if (!ls_param->l_arg)
-		ls_param->l_arg = creat_elem(str[arg]);
-	else
-		push_file_in_list(ls_param->l_arg, str[arg]);
+		push_file_in_list(&ls_param->l_arg, str[arg]);
 	arg++;
     }
-    ft_putstrnb("option value : ", ls_param->option);
+	ft_putstrnb("option value : ", ls_param->option);
 	ls_param->l_arg = l_mod2(ls_param->l_arg, &l_sort_alpha);
 	l_mod(ls_param->l_arg, &p_elem);
+	ft_putendl("====== Print Folder ======");
+	l_mod(ls_param->l_arg, &print_folder);	
+	ft_putendl("====== Print File ======");
+	l_mod(ls_param->l_arg, &print_file);	
+	ft_putendl("====== Print Content ======");
 	l_mod(ls_param->l_arg, &read_content);
 }
 

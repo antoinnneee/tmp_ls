@@ -14,7 +14,8 @@ NAME = ls
 
 SRC = ./src/main.c \
 	./src/parser.c \
-	./src/sort.c
+	./src/sort.c \
+	./src/secure_cat.c
 
 CC = gcc
 
