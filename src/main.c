@@ -60,7 +60,7 @@ static t_larg	*creat_elem(char *str)
 	struct dirent *ent;
 	t_larg *cnt;
 
-	tmp = (t_larg*) ft_memalloc(sizeof(t_larg));
+	tmp = (t_larg*) ft_memalloc(sizeof(struct s_arglist));
 	tmp->name = ft_strdup(str);
 	dir = opendir(str);
 	tmp->state = 1;
@@ -68,21 +68,20 @@ static t_larg	*creat_elem(char *str)
 	{
 		if (errno == ENOTDIR)
 			tmp->state = 2;
-		else
-			tmp->state = 0;
-			tmp->state = 3;
 	}
 	else
 	{
 		standardize(tmp->name);
-		while ((ent = readdir(dir)))
-			if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, "."))
+			while ((ent = readdir(dir)))
 			{
+		if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, "."))
+		{
 				ft_putendl(ent->d_name);
 				push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name));
-				tmp->content = l_mod2(tmp->content, &l_sort_alpha);
 			}
 		//push_file_in_list(tmp->content, secure_cat(tmp->name, ent->d_name));
+		}
+		tmp->content = l_mod2(tmp->content, &l_sort_alpha);
 	}
 	closedir(dir);
 	return (tmp);
@@ -94,6 +93,8 @@ void	push_file_in_list(t_larg **begin, char *str)
 	t_larg	*index;
 
 	index = *begin;
+			//				add condition ici pour ajouter les "./.." a la liste
+	
 	tmp = creat_elem(str);
 	if (tmp->state)
 	{
@@ -133,12 +134,34 @@ static int	get_option(int nbarg, char **str, t_ls *ls_param)
 	return (arg);
 }
 
-static void	read_content(t_larg *tmp)
+static void	free_content(t_larg *tmp)
 {
+	t_larg	*elem_f;
+	if (tmp)
+	{
+		if (tmp->state != 2)
+			free_content(tmp->content);
+		ft_putstr("\nFree :: ");
+		ft_putendl(tmp->name);
+		while (tmp->content)
+		{
+			ft_putendl(tmp->content->name);
+			elem_f = tmp->content;
+			tmp->content = tmp->content->next;
+			free(elem_f);
+		}
+		ft_putstr("END OF Free\n\n");
+	}
+}
+
+static void	read_content(t_larg *elem)
+{
+	t_larg *tmp;
+	tmp = elem;
 		if (tmp)
 		{
-				if (tmp->state == 1)
-					read_content(tmp->content);
+			if (tmp->state != 2)
+				read_content(tmp->content);
 			ft_putstr("\nFOLDER :: ");
 			ft_putendl(tmp->name);
 			while (tmp->content)
@@ -167,7 +190,7 @@ void 	arg_parser(int nbarg, char **str)
 	int		arg;
 	t_ls	*ls_param;
 
-	ls_param = (t_ls*)ft_memalloc(sizeof(t_ls));
+	ls_param = (t_ls*)ft_memalloc(sizeof(struct s_lsparam));
 	ls_param->option = 0;
 	ls_param->l_arg = NULL;
 	arg = get_option(nbarg, str, ls_param);
@@ -178,17 +201,18 @@ void 	arg_parser(int nbarg, char **str)
     while (arg < nbarg)
     {
 		push_file_in_list(&ls_param->l_arg, str[arg]);
-	arg++;
+		arg++;
     }
 	ft_putstrnb("option value : ", ls_param->option);
 	ls_param->l_arg = l_mod2(ls_param->l_arg, &l_sort_alpha);
-	l_mod(ls_param->l_arg, &p_elem);
 	ft_putendl("====== Print Folder ======");
 	l_mod(ls_param->l_arg, &print_folder);	
 	ft_putendl("====== Print File ======");
 	l_mod(ls_param->l_arg, &print_file);	
 	ft_putendl("====== Print Content ======");
 	l_mod(ls_param->l_arg, &read_content);
+	l_mod(ls_param->l_arg, &read_content);
+	l_mod(ls_param->l_arg, &free_content);
 }
 
 int	main(int a, char **b)
