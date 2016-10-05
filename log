@@ -1,0 +1,1168 @@
+.git/:
+total 60
+drwxrwxr-x   2 antoine antoine  4096 juin  27 14:44 branches
+-rw-rw-r--   1 antoine antoine    10 oct.   4 11:46 COMMIT_EDITMSG
+-rwxrw-r--   1 antoine antoine   266 juin  27 14:47 config
+-rw-rw-r--   1 antoine antoine    73 juin  27 14:44 description
+-rw-rw-r--   1 antoine antoine    99 oct.   3 11:35 FETCH_HEAD
+-rw-rw-r--   1 antoine antoine    23 juin  27 14:44 HEAD
+drwxrwxr-x   2 antoine antoine  4096 juin  27 14:44 hooks
+-rw-rw-r--   1 antoine antoine 10728 oct.   4 11:46 index
+drwxrwxr-x   2 antoine antoine  4096 juin  27 14:44 info
+drwxrwxr-x   3 antoine antoine  4096 juin  27 14:47 logs
+drwxrwxr-x 187 antoine antoine  4096 oct.   4 11:46 objects
+-rw-rw-r--   1 antoine antoine    41 oct.   3 11:34 ORIG_HEAD
+drwxrwxr-x   5 antoine antoine  4096 juin  27 14:47 refs
+
+.git/branches:
+total 0
+
+.git/hooks:
+total 40
+-rwxrwxr-x 1 antoine antoine  452 juin  27 14:44 applypatch-msg.sample
+-rwxrwxr-x 1 antoine antoine  896 juin  27 14:44 commit-msg.sample
+-rwxrwxr-x 1 antoine antoine  189 juin  27 14:44 post-update.sample
+-rwxrwxr-x 1 antoine antoine  398 juin  27 14:44 pre-applypatch.sample
+-rwxrwxr-x 1 antoine antoine 1642 juin  27 14:44 pre-commit.sample
+-rwxrwxr-x 1 antoine antoine 1239 juin  27 14:44 prepare-commit-msg.sample
+-rwxrwxr-x 1 antoine antoine 1352 juin  27 14:44 pre-push.sample
+-rwxrwxr-x 1 antoine antoine 4898 juin  27 14:44 pre-rebase.sample
+-rwxrwxr-x 1 antoine antoine 3611 juin  27 14:44 update.sample
+
+.git/info:
+total 4
+-rw-rw-r-- 1 antoine antoine 240 juin  27 14:44 exclude
+
+.git/logs:
+total 8
+-rw-rw-r-- 1 antoine antoine  922 oct.   4 11:46 HEAD
+drwxrwxr-x 4 antoine antoine 4096 juin  27 14:47 refs
+
+.git/logs/refs:
+total 8
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 heads
+drwxrwxr-x 3 antoine antoine 4096 juin  27 14:47 remotes
+
+.git/logs/refs/heads:
+total 4
+-rw-rw-r-- 1 antoine antoine 922 oct.   4 11:46 master
+
+.git/logs/refs/remotes:
+total 4
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 origin
+
+.git/logs/refs/remotes/origin:
+total 4
+-rw-rw-r-- 1 antoine antoine 904 oct.   4 11:46 master
+
+.git/objects:
+total 740
+drwxrwxr-x 2 antoine antoine 4096 sept. 14 11:30 00
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 01
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 02
+drwxrwxr-x 2 antoine antoine 4096 sept. 14 11:30 03
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 04
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 05
+drwxrwxr-x 2 antoine antoine 4096 sept. 14 11:30 07
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 08
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 09
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 0a
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 0b
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 0c
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 0d
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 0e
+drwxrwxr-x 2 antoine antoine 4096 sept. 14 11:30 0f
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 13
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 17
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:54 1a
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 1b
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 1d
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 1e
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 1f
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 21
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 23
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 24
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 25
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 26
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 27
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 28
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 29
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 2a
+drwxrwxr-x 2 antoine antoine 4096 oct.   4 11:46 2b
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 2c
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 2d
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 2e
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 2f
+drwxrwxr-x 2 antoine antoine 4096 oct.   4 11:46 30
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 32
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 33
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 34
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 35
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 37
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 38
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 39
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 3a
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 3b
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 3c
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 3d
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 3e
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 40
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 43
+drwxrwxr-x 2 antoine antoine 4096 oct.   4 11:46 44
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 46
+drwxrwxr-x 2 antoine antoine 4096 sept. 14 11:30 47
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 48
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 4a
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 4b
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 4c
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:54 4d
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 4e
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 4f
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 50
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 54
+drwxrwxr-x 2 antoine antoine 4096 oct.   4 11:46 55
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:54 58
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 59
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 5b
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 5e
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 5f
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 61
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 63
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 65
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 66
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 67
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 68
+drwxrwxr-x 2 antoine antoine 4096 sept. 14 11:30 6b
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 6c
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 6d
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 6e
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 6f
+drwxrwxr-x 2 antoine antoine 4096 oct.   4 11:46 71
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 73
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 74
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 75
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 77
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 79
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:54 7a
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 7c
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 7e
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 80
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 81
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 82
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 83
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:53 84
+drwxrwxr-x 2 antoine antoine 4096 oct.   4 11:46 86
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 87
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 88
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 89
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 8a
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 8b
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:54 8d
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 8e
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 8f
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 91
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 92
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 94
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:53 97
+drwxrwxr-x 2 antoine antoine 4096 sept. 14 11:30 99
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 9b
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 9e
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 a0
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 a1
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:54 a3
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 a4
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 a5
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 a6
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 a7
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 a8
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 a9
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 aa
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:53 ab
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 ae
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 af
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 b0
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 b1
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 b3
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:54 b4
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 b7
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 b8
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:53 b9
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 ba
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 bb
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 bc
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 bd
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 be
+drwxrwxr-x 2 antoine antoine 4096 oct.   4 11:46 bf
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 c0
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 c1
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 c2
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:53 c4
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 c6
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 c8
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 c9
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:53 ca
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 ce
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 cf
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 d0
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 d2
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 d3
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 d4
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 d5
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 d6
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 d7
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 da
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 db
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 dc
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 e0
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 e1
+drwxrwxr-x 2 antoine antoine 4096 sept. 14 11:30 e3
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 e4
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 e5
+drwxrwxr-x 2 antoine antoine 4096 sept. 14 11:30 e6
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 e7
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 ea
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 eb
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 ec
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 ed
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 ee
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 ef
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 f0
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 f1
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 f2
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 f3
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 f4
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 f5
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 f7
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 16:53 f8
+drwxrwxr-x 2 antoine antoine 4096 sept. 13 13:59 f9
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 fa
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 fb
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 fc
+drwxrwxr-x 2 antoine antoine 4096 oct.   3 11:34 fe
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:47 ff
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:44 info
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:44 pack
+
+.git/objects/00:
+total 12
+-r--r--r-- 1 antoine antoine  438 juin  27 14:47 93a3a094fe93ae7b68edaf7975a95d61a5ac88
+-r--r--r-- 1 antoine antoine 1333 sept. 14 11:30 b197fff9ffce6bba96700f5617eb64092206e3
+-r--r--r-- 1 antoine antoine  326 sept. 14 11:30 bc4f8fc42e062157d04cbf74431479423b8d05
+
+.git/objects/01:
+total 4
+-r--r--r-- 1 antoine antoine 367 juin  27 14:47 4a346a37a4d650a6ba279c017d85c3907074e5
+
+.git/objects/02:
+total 8
+-r--r--r-- 1 antoine antoine  372 juin  27 14:47 3be4f8f6827492008baf638cbb05f2bac02a49
+-r--r--r-- 1 antoine antoine 1271 sept. 13 13:59 ae1ef1c33a6337e1a3fe51c87d01a3a6fa96d0
+
+.git/objects/03:
+total 8
+-r--r--r-- 1 antoine antoine 1575 juin  27 14:47 840c31c6a1bc1df64d00b4898836d629bf5f93
+-r--r--r-- 1 antoine antoine   19 sept. 14 11:30 9727ec5a50d0ed45ff67e6f4c9b953bd23c17d
+
+.git/objects/04:
+total 8
+-r--r--r-- 1 antoine antoine 1300 juin  27 14:47 16901217a9438d0b23f2962037f9e9c02c0b06
+-r--r--r-- 1 antoine antoine 1333 juin  27 14:47 9a05f8c75cc0aeaa1f6f4f9f82eec2f853dd8f
+
+.git/objects/05:
+total 4
+-r--r--r-- 1 antoine antoine 319 juin  27 14:47 28303cb7c6a05fd9d8a0750845e057b3692553
+
+.git/objects/07:
+total 8
+-r--r--r-- 1 antoine antoine  831 sept. 14 11:30 979cd891e15a6c058ebdc6dcacd59a7b5dbfbe
+-r--r--r-- 1 antoine antoine 1349 sept. 13 13:59 b9e40450180eb08134d1259515e18048fc379a
+
+.git/objects/08:
+total 8
+-r--r--r-- 1 antoine antoine 1347 sept. 13 13:59 d8966a71b46dcea68c677efb8f0e7beb3a176c
+-r--r--r-- 1 antoine antoine  361 juin  27 14:47 e3029c9a7b1cd7902807c1e2642756b29f60e7
+
+.git/objects/09:
+total 8
+-r--r--r-- 1 antoine antoine 1368 juin  27 14:47 1641f115899725063e443cd361ceff631a0d39
+-r--r--r-- 1 antoine antoine  492 juin  27 14:47 7339f57640f16e2f91dc7aa7cdaa2b449594ec
+
+.git/objects/0a:
+total 12
+-r--r--r-- 1 antoine antoine 1586 sept. 13 13:59 447f4b86646998e54b4684cb6d36a768126cf0
+-r--r--r-- 1 antoine antoine  779 juin  27 14:47 ad8f56d9287dee92224362782279c1c41cd24e
+-r--r--r-- 1 antoine antoine  269 juin  27 14:47 c4982b96c7bc4cb9b038787fda797a3c5cf47b
+
+.git/objects/0b:
+total 8
+-r--r--r-- 1 antoine antoine 1258 juin  27 14:47 e89f869120740301c0073f3aa33e9958398fc3
+-r--r--r-- 1 antoine antoine 1337 juin  27 14:47 e8e73bf233fb16ccc888a31e712b539ce690ba
+
+.git/objects/0c:
+total 4
+-r--r--r-- 1 antoine antoine 1175 sept. 13 13:59 2497aca83548d4d07cc46db16c161335b999d3
+
+.git/objects/0d:
+total 16
+-r--r--r-- 1 antoine antoine  303 juin  27 14:47 0c8f083e7ff1e3cabe7a563189c17dc38ec2d2
+-r--r--r-- 1 antoine antoine 1228 juin  27 14:47 1eb19f899a0d7f59609f71395b60be7b7b152c
+-r--r--r-- 1 antoine antoine 1123 juin  27 14:47 217d5a6c5dc3518094552776d001d8b76a2655
+-r--r--r-- 1 antoine antoine 1363 sept. 13 13:59 2329261470980ed7cc440e101626e7af9939d1
+
+.git/objects/0e:
+total 12
+-r--r--r-- 1 antoine antoine 4451 oct.   3 11:34 98bc9e9a54d03fcf22a274f478573d15546bae
+-r--r--r-- 1 antoine antoine  276 juin  27 14:47 df52e6bfdd156bdef1302103100ac0d9b5c40b
+
+.git/objects/0f:
+total 8
+-r--r--r-- 1 antoine antoine 1070 sept. 13 13:59 270e79a942d02a87fa4a63ecc6e99a44980b18
+-r--r--r-- 1 antoine antoine  422 sept. 14 11:30 d251d3b15da66b8ed8d74f6a5a2e5f1cf26af0
+
+.git/objects/13:
+total 12
+-r--r--r-- 1 antoine antoine 1014 sept. 13 13:59 438ee8a36afb612d2333ab594781791320e73a
+-r--r--r-- 1 antoine antoine 1309 juin  27 14:47 89c86d51d91c69717a97169d49a7b1190df811
+-r--r--r-- 1 antoine antoine 1493 juin  27 14:47 ec7cfd6c3554414160cfafc7526428c103e61e
+
+.git/objects/17:
+total 20
+-r--r--r-- 1 antoine antoine 4822 oct.   3 11:34 01d71fa4540e2cb99b7b24ea08e9628c9386f3
+-r--r--r-- 1 antoine antoine  308 juin  27 14:47 230142f43633091132e76fe2fe0032e510720e
+-r--r--r-- 1 antoine antoine  288 juin  27 14:47 9a6432bce0b5b23d780cf82532bd93f965ac87
+-r--r--r-- 1 antoine antoine 1657 sept. 13 13:59 f5fc0933c5b38736d42d714f20daf0890c879d
+
+.git/objects/1a:
+total 16
+-r--r--r-- 1 antoine antoine 1165 juin  27 14:47 0618f41d594ab738135cf5664e97c543edb48c
+-r--r--r-- 1 antoine antoine  267 oct.   3 16:54 87586d2b050e3c590edb8eb7ffaa354202d413
+-r--r--r-- 1 antoine antoine  251 sept. 14 11:30 b5c24d5df4588862e47aa6d60a7b735f6dff7a
+-r--r--r-- 1 antoine antoine  276 juin  27 14:47 c38e241e687a4fe3e4960dbbfec14b0dd55d6d
+
+.git/objects/1b:
+total 4
+-r--r--r-- 1 antoine antoine 1202 juin  27 14:47 036572b80560d136d6946532ec3abb0ecc45db
+
+.git/objects/1d:
+total 8
+-r--r--r-- 1 antoine antoine  884 sept. 13 13:59 6444345ff634e16dd8b99714bbcbfab21b067e
+-r--r--r-- 1 antoine antoine 1550 juin  27 14:47 f08360d45fc3b383951f58bb872d1f766d04b1
+
+.git/objects/1e:
+total 4
+-r--r--r-- 1 antoine antoine 1473 juin  27 14:47 af5926dc350f1f055781ac4a75e2dd1466ecfd
+
+.git/objects/1f:
+total 4
+-r--r--r-- 1 antoine antoine 320 juin  27 14:47 20eb654e50e118363e813da8613af53b5ad8a7
+
+.git/objects/21:
+total 16
+-r--r--r-- 1 antoine antoine  926 sept. 13 13:59 1b1c8d58fc5e4d46ba73476b5ac63cf42ca695
+-r--r--r-- 1 antoine antoine 3969 sept. 13 13:59 4f970dd52b0c1a9c2a18e5df0f9478f64953db
+-r--r--r-- 1 antoine antoine  338 juin  27 14:47 84f917c3742b21bbe273ffac5821c1952193c4
+-r--r--r-- 1 antoine antoine  405 juin  27 14:47 fb1c6d834b6fc61d3a372fbd05e47099189e4c
+
+.git/objects/23:
+total 4
+-r--r--r-- 1 antoine antoine 599 juin  27 14:47 aa7b091b7d22705df1dbae8bd50ea97ece5194
+
+.git/objects/24:
+total 4
+-r--r--r-- 1 antoine antoine 418 juin  27 14:47 8e2de1f9882ce769ef3a76294491213f71dff2
+
+.git/objects/25:
+total 16
+-r--r--r-- 1 antoine antoine 932 sept. 13 13:59 4e048622d586e1e78ff6fe278161a0f4b82fa1
+-r--r--r-- 1 antoine antoine 507 juin  27 14:47 5230d5255b7f5a21b61f9a548cc2b4c02a54d4
+-r--r--r-- 1 antoine antoine 304 juin  27 14:47 c6ad8c5da3677aff3de309ad8e9ff4f4743a46
+-r--r--r-- 1 antoine antoine 292 juin  27 14:47 e4e30b59d110436e6fecb911ef51e1d048e166
+
+.git/objects/26:
+total 8
+-r--r--r-- 1 antoine antoine  358 juin  27 14:47 3fbd87bc28eb78952f6c75d7f6fbfc122d2c24
+-r--r--r-- 1 antoine antoine 1614 juin  27 14:47 a1f60d49135e1ef386d1e7b07967591f5362b2
+
+.git/objects/27:
+total 4
+-r--r--r-- 1 antoine antoine 2650 juin  27 14:47 d6f60ab77bbc74f28faf97fb2329d1794b5cc7
+
+.git/objects/28:
+total 8
+-r--r--r-- 1 antoine antoine 1081 sept. 13 13:59 45a8ad5345bfe0f889d5c0067e6dfdd53534ac
+-r--r--r-- 1 antoine antoine 1384 juin  27 14:47 c23df00f29ce32b3682888c9392fe9e2b78512
+
+.git/objects/29:
+total 4
+-r--r--r-- 1 antoine antoine 967 sept. 13 13:59 82184044b52ae47b889ff63c5d00d78da297a6
+
+.git/objects/2a:
+total 8
+-r--r--r-- 1 antoine antoine 881 sept. 13 13:59 0b8f469e6c588d99792c20265b3725bfa0184d
+-r--r--r-- 1 antoine antoine 353 oct.   3 11:34 4297c6cd854fc5cfdf6e3cb8542690e99c377e
+
+.git/objects/2b:
+total 8
+-r--r--r-- 1 antoine antoine 155 oct.   4 11:46 e1a0abf53594510c90b19454b9e24fd92152b5
+-r--r--r-- 1 antoine antoine 339 oct.   3 16:54 f8ea357eeb779f9a9a8aa14fd4539e1af7119c
+
+.git/objects/2c:
+total 4
+-r--r--r-- 1 antoine antoine 1232 juin  27 14:47 1013f7f849eb6c037ba4025de5cfd2bee61da7
+
+.git/objects/2d:
+total 8
+-r--r--r-- 1 antoine antoine  340 juin  27 14:47 94965e0fe256052481ca42f128e9efa3d916cd
+-r--r--r-- 1 antoine antoine 3390 oct.   3 11:34 f2059b5d28cdb30dd7b75ba95a26c77353d823
+
+.git/objects/2e:
+total 4
+-r--r--r-- 1 antoine antoine 938 sept. 13 13:59 cc4f73400f6d33c267eee5428b221aa6a4d7f5
+
+.git/objects/2f:
+total 4
+-r--r--r-- 1 antoine antoine 276 juin  27 14:47 67b26c68e1dc28c395077d073c4092ec555160
+
+.git/objects/30:
+total 8
+-r--r--r-- 1 antoine antoine 1170 sept. 13 13:59 12cc13bb4eaf5f7228a7244c75f2173383ae86
+-r--r--r-- 1 antoine antoine  295 oct.   4 11:46 b7136cc2e30f31cf4effd59d867040568827e7
+
+.git/objects/32:
+total 12
+-r--r--r-- 1 antoine antoine 1067 juin  27 14:47 05cfd42608ec51cf4f2b0ea09f8dc0a2c4a105
+-r--r--r-- 1 antoine antoine  662 oct.   3 11:34 6cd4a7a126c7e0a9422fdca8c82675a72c20fa
+-r--r--r-- 1 antoine antoine 1365 juin  27 14:47 c9fe79ee7623ba13be81b198b33bddf0c14a5e
+
+.git/objects/33:
+total 8
+-r--r--r-- 1 antoine antoine 1123 sept. 13 13:59 4c8f9b1b46cc672b22ad8ea90f87d838ede4a1
+-r--r--r-- 1 antoine antoine 1485 sept. 13 13:59 5aeab4774b4478d5b8239960038b2afc490d81
+
+.git/objects/34:
+total 4
+-r--r--r-- 1 antoine antoine 362 juin  27 14:47 1a55a011d09bc165ddbf3858ecb939d6a2038b
+
+.git/objects/35:
+total 4
+-r--r--r-- 1 antoine antoine 1483 juin  27 14:47 9f152cd5f5c0c77c50dba22da103fa67f054f7
+
+.git/objects/37:
+total 8
+-r--r--r-- 1 antoine antoine  119 juin  27 14:47 c10106382ec38a75398c64d40d161ca6c53f11
+-r--r--r-- 1 antoine antoine 1175 sept. 13 13:59 cf0a5f5581c3e6f6599a1b96ec9faa84160cdb
+
+.git/objects/38:
+total 4
+-r--r--r-- 1 antoine antoine 1121 sept. 13 13:59 e1b6a88cda2fecb29c6432a1851a0dca3b2344
+
+.git/objects/39:
+total 4
+-r--r--r-- 1 antoine antoine 522 oct.   3 11:34 6b05ac2f19a4be23db82e2e2203853cbd34754
+
+.git/objects/3a:
+total 60
+-r--r--r-- 1 antoine antoine 56126 juin  27 14:47 40e29234baea6ef060c73cbebf5ade6a195b75
+-r--r--r-- 1 antoine antoine   358 juin  27 14:47 83facaa8d954f80cc6376060ff8a05fd060ea4
+
+.git/objects/3b:
+total 12
+-r--r--r-- 1 antoine antoine 1150 sept. 13 13:59 0d2fd2ef2b8d5a11cdfa5ef15e343dd25fac2d
+-r--r--r-- 1 antoine antoine  166 sept. 13 13:59 2ada30c710cab814358d51f8f0800762a4ec5d
+-r--r--r-- 1 antoine antoine  327 juin  27 14:47 7c9ece50da5407571b49f6199c782db7f3a486
+
+.git/objects/3c:
+total 12
+-r--r--r-- 1 antoine antoine 1030 juin  27 14:47 424a3ad1dea37d5cbc68693c97d85e8c967c2c
+-r--r--r-- 1 antoine antoine 4451 sept. 13 13:59 dea46a7a7da2d326d39b013acd7707f0c88d4f
+
+.git/objects/3d:
+total 8
+-r--r--r-- 1 antoine antoine 1142 sept. 13 13:59 0e165b0c62a8b16001f20bbe5ca62f5884edb8
+-r--r--r-- 1 antoine antoine  303 juin  27 14:47 5e127a24841177e15c3905ae73a6a36cc5fc1c
+
+.git/objects/3e:
+total 4
+-r--r--r-- 1 antoine antoine 1350 sept. 13 13:59 c10fec72de6186432abc075b41f818fa3ccd88
+
+.git/objects/40:
+total 8
+-r--r--r-- 1 antoine antoine  125 juin  27 14:47 2c0360d84199233e211296d20d7d6d53b493e8
+-r--r--r-- 1 antoine antoine 1521 juin  27 14:47 fe370f25a8bf08b9febb4a0f4862dcde9cf0cd
+
+.git/objects/43:
+total 8
+-r--r--r-- 1 antoine antoine  119 sept. 13 13:59 3091bdd666fd2a7bd5c9fb33b926879d807580
+-r--r--r-- 1 antoine antoine 1248 sept. 13 13:59 3708b6ba6adf9457a4b0854204cba34909d9ab
+
+.git/objects/44:
+total 20
+-r--r--r-- 1 antoine antoine   391 juin  27 14:47 607268fa4e6379258bff794ef2cc306c22d54f
+-r--r--r-- 1 antoine antoine 11012 oct.   4 11:46 7b744d0851748ecf6b2b4e40b0c1599b9ff32e
+-r--r--r-- 1 antoine antoine   318 juin  27 14:47 8c9672bdea05161406ca3d3aeecd1ea4e1668f
+
+.git/objects/46:
+total 4
+-r--r--r-- 1 antoine antoine 870 sept. 13 13:59 8125db6ad7a0798fcd21c95515a06ad73cc6cc
+
+.git/objects/47:
+total 4
+-r--r--r-- 1 antoine antoine 87 sept. 14 11:30 8668966d025130d39bf05ce97a7228450e7eb9
+
+.git/objects/48:
+total 4
+-r--r--r-- 1 antoine antoine 1483 sept. 13 13:59 d77dc16cca152673e8ce16ee9ba85d2d9c3448
+
+.git/objects/4a:
+total 4
+-r--r--r-- 1 antoine antoine 267 sept. 13 13:59 1bf8146057e224710d46f010fb51d5ef87236e
+
+.git/objects/4b:
+total 4
+-r--r--r-- 1 antoine antoine 1292 sept. 13 13:59 c778ec69708578a71e74cac7869cc56943e142
+
+.git/objects/4c:
+total 4
+-r--r--r-- 1 antoine antoine 869 sept. 13 13:59 a1425c7cd01769d5cf3965630efb6d41814b11
+
+.git/objects/4d:
+total 12
+-r--r--r-- 1 antoine antoine 5399 oct.   3 11:34 01844a1a58a60c51be418a89a0bce4b27e8d42
+-r--r--r-- 1 antoine antoine  101 oct.   3 16:54 6b56118141b88024a87495150746db7c3defc6
+
+.git/objects/4e:
+total 4
+-r--r--r-- 1 antoine antoine 1294 sept. 13 13:59 a7521dfa03466964c40cb021cab9d3a755e542
+
+.git/objects/4f:
+total 16
+-r--r--r-- 1 antoine antoine 1021 sept. 13 13:59 0368f8dc45477dd45ca87bfad60f7bcd8e5d1b
+-r--r--r-- 1 antoine antoine  940 sept. 13 13:59 6b48adfc92b4f064d6f318be807a688d3dfeb0
+-r--r--r-- 1 antoine antoine 1571 sept. 13 13:59 8a1583e06b29ff97949f55d49ff8a23198fa41
+-r--r--r-- 1 antoine antoine  299 juin  27 14:47 c57bd30cb998ddb65b0c56fd7368dfaf2293fc
+
+.git/objects/50:
+total 12
+-r--r--r-- 1 antoine antoine  319 juin  27 14:47 164dee68a87d2d421b83c4261e13b0136ba3ab
+-r--r--r-- 1 antoine antoine 1118 juin  27 14:47 5d738809d6bceed886951861c507cac3716020
+-r--r--r-- 1 antoine antoine 1297 sept. 13 13:59 e6b9636e76a3ed574dd8bf624cac933efc0a71
+
+.git/objects/54:
+total 8
+-r--r--r-- 1 antoine antoine 3266 juin  27 14:47 7ab007080024503aa05461fbb56a5d9810597f
+-r--r--r-- 1 antoine antoine  409 oct.   3 11:34 a6d3f8e54522280dba0a8f82f0ad13700ca9ab
+
+.git/objects/55:
+total 16
+-r--r--r-- 1 antoine antoine 1650 juin  27 14:47 18a807ef8f597f3807037787c6a3e2896b334a
+-r--r--r-- 1 antoine antoine 1176 oct.   4 11:46 24389e135a324b595f1ca763a098f56509c071
+-r--r--r-- 1 antoine antoine  325 juin  27 14:47 3b54cd3f9dbeff352b29b21d1a02d108f60301
+-r--r--r-- 1 antoine antoine 1448 oct.   4 11:46 45c1efd73d99a6e2ea36d52cb2724c8db9b147
+
+.git/objects/58:
+total 20
+-r--r--r-- 1 antoine antoine   74 oct.   3 16:54 390154849ac22e52b8066106fe15993e8f4532
+-r--r--r-- 1 antoine antoine  273 sept. 13 13:59 a30f1fa38ffd5ebabd72813bda7da09bb43a82
+-r--r--r-- 1 antoine antoine 1117 sept. 13 13:59 b327c48bdc50dc39fe3b5a6975e48b90238fd5
+-r--r--r-- 1 antoine antoine  927 sept. 13 13:59 bdbea36eff29a5432a761520e8b820c208a8aa
+-r--r--r-- 1 antoine antoine  357 juin  27 14:47 f5b09917779ec398f4f3c2f010f62db1d4dc64
+
+.git/objects/59:
+total 16
+-r--r--r-- 1 antoine antoine 4438 juin  27 14:47 295b3563276fcb574e7d40cf5e43528e90f9de
+-r--r--r-- 1 antoine antoine 1122 juin  27 14:47 960b804c0387ddb0589e7096e7ebee4db6d4d8
+-r--r--r-- 1 antoine antoine 1686 juin  27 14:47 f2d23a7c94221b6e985739fb07d264471122a1
+
+.git/objects/5b:
+total 28
+-r--r--r-- 1 antoine antoine   406 juin  27 14:47 206993225b583a832d194a509970255e8882fb
+-r--r--r-- 1 antoine antoine 17979 juin  27 14:47 59fc389cf64ae6728fc8c5503c6f556978104b
+-r--r--r-- 1 antoine antoine   968 sept. 13 13:59 82e13414cb6d6405dbbbccd7a35b1fdbe1f453
+
+.git/objects/5e:
+total 4
+-r--r--r-- 1 antoine antoine 674 oct.   3 11:34 1856e12af8b2ccacd63f827c03baf3ad829471
+
+.git/objects/5f:
+total 4
+-r--r--r-- 1 antoine antoine 1432 juin  27 14:47 4eb59836418eed9f2081618284360d6534940c
+
+.git/objects/61:
+total 4
+-r--r--r-- 1 antoine antoine 1358 juin  27 14:47 0aa3c11b36ed55032be85c84b4b3fc1739b952
+
+.git/objects/63:
+total 4
+-r--r--r-- 1 antoine antoine 1466 juin  27 14:47 638429760a50f84293835e214eabef517ff877
+
+.git/objects/65:
+total 4
+-r--r--r-- 1 antoine antoine 1326 juin  27 14:47 e4c5ad33040e33e7d72e4186727c1845e49c9a
+
+.git/objects/66:
+total 8
+-r--r--r-- 1 antoine antoine 1243 sept. 13 13:59 3ab80edb1e151cb2de8cf6e64a93b6b41dad5f
+-r--r--r-- 1 antoine antoine 1542 juin  27 14:47 d871e2be9211fb57fd08d40d79658df75f074d
+
+.git/objects/67:
+total 8
+-r--r--r-- 1 antoine antoine  320 juin  27 14:47 2907a9a5c6e4d6ff4103375e04ab0eeba2f7b9
+-r--r--r-- 1 antoine antoine 1157 juin  27 14:47 6bda8464e0c4645c7ae3c78082e13fb0580f8d
+
+.git/objects/68:
+total 16
+-r--r--r-- 1 antoine antoine  292 sept. 13 13:59 123a04d58ccaacea795165692ddac58288b80c
+-r--r--r-- 1 antoine antoine  414 juin  27 14:47 16df9ad4a3d440b5796a104711a57a2ab450fb
+-r--r--r-- 1 antoine antoine 1000 sept. 13 13:59 40877420650bec12aa2f9278ce3d479ceed6c1
+-r--r--r-- 1 antoine antoine  522 juin  27 14:47 a83e6f3d57c07296803eb39fe75af1e31c5b6a
+
+.git/objects/6b:
+total 12
+-r--r--r-- 1 antoine antoine  297 juin  27 14:47 cf89bfeb63eb654ce4726796e7ff7a3a2b5ff7
+-r--r--r-- 1 antoine antoine 1522 juin  27 14:47 d436e5bc2a2f0d8445b4811c809c320b73c554
+-r--r--r-- 1 antoine antoine   34 sept. 14 11:30 e95adff453bfd2397ee71ac70000a98689cbe6
+
+.git/objects/6c:
+total 4
+-r--r--r-- 1 antoine antoine 368 juin  27 14:47 ca6fab3c71a6f0b04dbeb6bd6e23fc604e3349
+
+.git/objects/6d:
+total 4
+-r--r--r-- 1 antoine antoine 1714 juin  27 14:47 5481059ed022a7fd22c8f1abb31958141e4914
+
+.git/objects/6e:
+total 8
+-r--r--r-- 1 antoine antoine 1611 juin  27 14:47 45cac054978c12c38f3c9b75b1fb98ad7148ce
+-r--r--r-- 1 antoine antoine  291 juin  27 14:47 488617386b162dba8f1e989242b82145d8b49a
+
+.git/objects/6f:
+total 12
+-r--r--r-- 1 antoine antoine 1612 sept. 13 13:59 21b86644aa7e3dd350c1860fcf43c43aa0108b
+-r--r--r-- 1 antoine antoine 1220 juin  27 14:47 b53f3546c4c04995768e2ed4f72691df726c26
+-r--r--r-- 1 antoine antoine  892 sept. 13 13:59 fca53c7b172516e41d0ad297e5da93beeafc59
+
+.git/objects/71:
+total 4
+-r--r--r-- 1 antoine antoine 120 oct.   4 11:46 0e7d7a8356f874212528d2a856bbfb61d28a49
+
+.git/objects/73:
+total 4
+-r--r--r-- 1 antoine antoine 1324 juin  27 14:47 a9fd3274ff039ce50bb3eccf208b4581285754
+
+.git/objects/74:
+total 8
+-r--r--r-- 1 antoine antoine 1531 juin  27 14:47 8cabf00d00426fd91a19335a012a137791db9e
+-r--r--r-- 1 antoine antoine 1245 sept. 13 13:59 d0b64f567159b82f7cd49aa33b474061c8e2d8
+
+.git/objects/75:
+total 4
+-r--r--r-- 1 antoine antoine 1194 juin  27 14:47 102732d5224e95c7f959961402833658952817
+
+.git/objects/77:
+total 4
+-r--r--r-- 1 antoine antoine 1230 sept. 13 13:59 ae2ae6526134fcb7f01e40fef7f4a81179bc7e
+
+.git/objects/79:
+total 8
+-r--r--r-- 1 antoine antoine 877 sept. 13 13:59 9fb5b9b69ab7f60ef04aadb23c1eba130655f0
+-r--r--r-- 1 antoine antoine 506 oct.   3 11:34 f159236990689452fd2e8e10469ba0d5132471
+
+.git/objects/7a:
+total 12
+-r--r--r-- 1 antoine antoine 1246 juin  27 14:47 6f128779fd89cbf3e7299e5973f4e6f4f88afb
+-r--r--r-- 1 antoine antoine   88 oct.   3 16:54 7499e99c7106f1f5ba93bc21307f43c6e35849
+-r--r--r-- 1 antoine antoine 1157 juin  27 14:47 e065c1bd28d8dc67d05cb80d00243cca13289f
+
+.git/objects/7c:
+total 12
+-r--r--r-- 1 antoine antoine  894 sept. 13 13:59 70095a4dc5f2b96cab2eff16ed6e77a7918365
+-r--r--r-- 1 antoine antoine  276 juin  27 14:47 82ebe461af441ca1ee34952ff9024b535de4cb
+-r--r--r-- 1 antoine antoine 1403 juin  27 14:47 9e18d91d27cc30edbe8cefe24ee9b1df8cc856
+
+.git/objects/7e:
+total 4
+-r--r--r-- 1 antoine antoine 1496 sept. 13 13:59 54399388412fc11f4d524b89d5bab997dff53e
+
+.git/objects/80:
+total 12
+-r--r--r-- 1 antoine antoine  972 sept. 13 13:59 1d059760184168965f9e58b50d5c9b15adb83b
+-r--r--r-- 1 antoine antoine 1142 juin  27 14:47 b4f18e636db14e05ee6fd61b24cdd6bd8af9bb
+-r--r--r-- 1 antoine antoine 1319 sept. 13 13:59 c6d4b7f5234363d8a7b275c7157318c41c167b
+
+.git/objects/81:
+total 4
+-r--r--r-- 1 antoine antoine 692 sept. 13 13:59 ed939bb298169514316b841b0e6d5c627a1915
+
+.git/objects/82:
+total 8
+-r--r--r-- 1 antoine antoine  913 sept. 13 13:59 436d2587d9c7cec9296c7fa1c85f437e4cf967
+-r--r--r-- 1 antoine antoine 1358 sept. 13 13:59 5f5fa4e6b384e53245a1eb9d69b83cfc886edd
+
+.git/objects/83:
+total 16
+-r--r--r-- 1 antoine antoine  266 juin  27 14:47 1ac353218e59ee4fe33dda37e5f77a54988a1b
+-r--r--r-- 1 antoine antoine  290 juin  27 14:47 30f5cdc3eb4edaafd4485d3d8ca21cbcb4ec49
+-r--r--r-- 1 antoine antoine  551 juin  27 14:47 5629bf620740ad09f5a2caab1e031aed530dd0
+-r--r--r-- 1 antoine antoine 1384 juin  27 14:47 93f4fc49ef8b3428c9741a381ad3bbfe3209bb
+
+.git/objects/84:
+total 12
+-r--r--r-- 1 antoine antoine  363 juin  27 14:47 5a96eb08d580658bdfdbb2bb3d1b30aef9a1c2
+-r--r--r-- 1 antoine antoine  834 oct.   3 16:53 6c21fd624779fdcf09bd0ec6ad2e4c99e51cac
+-r--r--r-- 1 antoine antoine 1353 juin  27 14:47 ca537be317aa2e49af82a53ab8f5da6797aa8a
+
+.git/objects/86:
+total 72
+-r--r--r-- 1 antoine antoine   368 juin  27 14:47 304746576f493f66fbc34de448b3bafd026671
+-r--r--r-- 1 antoine antoine   416 juin  27 14:47 6156e33d3b617117717742c1238e05d6546a0e
+-r--r--r-- 1 antoine antoine  1009 sept. 13 13:59 8b7a47b9c94523ec84dacb9bfea984f49271e1
+-r--r--r-- 1 antoine antoine 56161 oct.   4 11:46 a6f8977978f8d37cb4f10757e7539a130c6a4e
+-r--r--r-- 1 antoine antoine  1424 juin  27 14:47 e458f446391066c01d60a97fb36919fa709f0c
+
+.git/objects/87:
+total 4
+-r--r--r-- 1 antoine antoine 1226 juin  27 14:47 4b0a0d0e062893d31a8fef88169838ecae5d7e
+
+.git/objects/88:
+total 8
+-r--r--r-- 1 antoine antoine 602 juin  27 14:47 503d13defcc47baf8ff3def77433e3e08a3b98
+-r--r--r-- 1 antoine antoine 881 sept. 13 13:59 ea3ccef9791b1d45b1646ab4731931ad889219
+
+.git/objects/89:
+total 4
+-r--r--r-- 1 antoine antoine 744 juin  27 14:47 af4e3c04ce9e2b6c0651ec6463b9c991d3e241
+
+.git/objects/8a:
+total 4
+-r--r--r-- 1 antoine antoine 1319 juin  27 14:47 d4e7e2af275074ad65f7178f69d66bfbdb1775
+
+.git/objects/8b:
+total 8
+-r--r--r-- 1 antoine antoine 279 juin  27 14:47 83e58c86410c7c3443f576c6a0c7d4978756ed
+-r--r--r-- 1 antoine antoine 375 juin  27 14:47 d3736c813108c49d02b89499746b5656f765c0
+
+.git/objects/8d:
+total 8
+-r--r--r-- 1 antoine antoine 139 oct.   3 16:54 0082918241fb32e42f065a6f842421a5f02caa
+-r--r--r-- 1 antoine antoine 704 juin  27 14:47 7705b44e3b269cdf752964e43e4c9fa8efb0fd
+
+.git/objects/8e:
+total 4
+-r--r--r-- 1 antoine antoine 504 juin  27 14:47 aeaf431c809e451affa31ddeb21a379590a717
+
+.git/objects/8f:
+total 8
+-r--r--r-- 1 antoine antoine  366 juin  27 14:47 2d5b528ec6686df04990cd53dad32eb0dc3e5a
+-r--r--r-- 1 antoine antoine 1203 juin  27 14:47 8ec004d1207eacd9cae51a0fc7e13709be706e
+
+.git/objects/91:
+total 8
+-r--r--r-- 1 antoine antoine  702 juin  27 14:47 988285ef8a33e9563fcf45062330040f19477b
+-r--r--r-- 1 antoine antoine 1183 juin  27 14:47 a98ebfa5d16bdd6847baab2227cf3bdc678c3d
+
+.git/objects/92:
+total 8
+-r--r--r-- 1 antoine antoine 1246 juin  27 14:47 5c68f65a5bb2c164ca60993546374572539ecd
+-r--r--r-- 1 antoine antoine 1491 juin  27 14:47 b5dc9598c2dacc03c0da7aefc804aba9293aa2
+
+.git/objects/94:
+total 4
+-r--r--r-- 1 antoine antoine 367 juin  27 14:47 0687e3432b3005b666a30d5d14875762349126
+
+.git/objects/97:
+total 4
+-r--r--r-- 1 antoine antoine 429 oct.   3 16:53 635fd7c10bc40d2fdf9f46a43d31854ff01aeb
+
+.git/objects/99:
+total 12
+-r--r--r-- 1 antoine antoine 402 sept. 14 11:30 485347ea0976d3bd1a53787966a291fef30fef
+-r--r--r-- 1 antoine antoine 391 sept. 14 11:30 676789da2ea27c3ed3fac6e07d3544951140be
+-r--r--r-- 1 antoine antoine 277 juin  27 14:47 af10510e4b11aee85e06ef64daca0e3eff3ebb
+
+.git/objects/9b:
+total 4
+-r--r--r-- 1 antoine antoine 387 juin  27 14:47 cf3aae8b5cae739412a79fc7cb8eaf48c83bf3
+
+.git/objects/9e:
+total 4
+-r--r--r-- 1 antoine antoine 355 juin  27 14:47 143b2a99e39d157ab4391c03f22d4f79d2edfd
+
+.git/objects/a0:
+total 20
+-r--r--r-- 1 antoine antoine  998 sept. 13 13:59 4188d6650beb05af9e9790f43f40b8117bf050
+-r--r--r-- 1 antoine antoine 1303 juin  27 14:47 430e9780e6686a0e818fa4157bcbec9a1ebe9f
+-r--r--r-- 1 antoine antoine  119 oct.   3 11:34 7a428605a12ed3b0de703f00265fdaeffb511c
+-r--r--r-- 1 antoine antoine  113 oct.   3 11:34 8488d48fd91e7cf2c773224cb56462ce5df14e
+-r--r--r-- 1 antoine antoine  167 juin  27 14:47 9e6679aee97646e0abbd34cacdef43434d9551
+
+.git/objects/a1:
+total 8
+-r--r--r-- 1 antoine antoine 1221 sept. 13 13:59 a291fd9396f8bfad43e52fd5585308f9cea7e1
+-r--r--r-- 1 antoine antoine  381 juin  27 14:47 d828eb7a74d69021d26033c5189a6a04226c69
+
+.git/objects/a3:
+total 4
+-r--r--r-- 1 antoine antoine 2363 oct.   3 16:54 c04321ab02f3cbd2a251d3723741d9f9987ea4
+
+.git/objects/a4:
+total 8
+-r--r--r-- 1 antoine antoine  372 juin  27 14:47 8472e3f951ccebbe29a2cbbf1450028dded9a6
+-r--r--r-- 1 antoine antoine 1224 sept. 13 13:59 b135887d47e56295f3cc917b658ce7f802314c
+
+.git/objects/a5:
+total 4
+-r--r--r-- 1 antoine antoine 895 sept. 13 13:59 4b666b244b849d7c51ba98f75383687d718422
+
+.git/objects/a6:
+total 12
+-r--r--r-- 1 antoine antoine  912 sept. 13 13:59 31967fb1f5232ce087982ce679c42a666987be
+-r--r--r-- 1 antoine antoine 1122 juin  27 14:47 42707720cdebf76cb759cf4fb571ef987daaf3
+-r--r--r-- 1 antoine antoine  377 juin  27 14:47 fef18f9360ad30990145c2fb24419557034857
+
+.git/objects/a7:
+total 4
+-r--r--r-- 1 antoine antoine 844 sept. 13 13:59 f10493fa90b8c276d4b670f8b36fb41e7d10a3
+
+.git/objects/a8:
+total 8
+-r--r--r-- 1 antoine antoine 1822 juin  27 14:47 430b56eb3a3ea2470f015b206038203582aaf1
+-r--r--r-- 1 antoine antoine  408 juin  27 14:47 e0f3a597cd79a935e940743a03c84cf9080862
+
+.git/objects/a9:
+total 4
+-r--r--r-- 1 antoine antoine 2391 sept. 13 13:59 4e54279ef1f46ba8fcd52a8f073fc8dc2a37a8
+
+.git/objects/aa:
+total 4
+-r--r--r-- 1 antoine antoine 325 juin  27 14:47 de634393ee7baa8e6595b5ce00f9d4192df5c1
+
+.git/objects/ab:
+total 12
+-r--r--r-- 1 antoine antoine 187 oct.   3 16:53 55cb922b28e0ee629df62532ef5541338a34aa
+-r--r--r-- 1 antoine antoine 881 sept. 13 13:59 577b2707141b0680539e5de9ea485f833dcc3b
+-r--r--r-- 1 antoine antoine 114 sept. 14 11:30 a17b99b37a27300661fb59196884adcc8672f8
+
+.git/objects/ae:
+total 4
+-r--r--r-- 1 antoine antoine 1705 sept. 13 13:59 427db8fe312ac2d10027d308db3ecba4507424
+
+.git/objects/af:
+total 4
+-r--r--r-- 1 antoine antoine 1317 sept. 13 13:59 939dd31a7e91011090a5b7366e8ec59a35f86c
+
+.git/objects/b0:
+total 4
+-r--r--r-- 1 antoine antoine 289 juin  27 14:47 800dc6fdb188fb8505b7d20b2758251827629d
+
+.git/objects/b1:
+total 4
+-r--r--r-- 1 antoine antoine 1690 juin  27 14:47 408b6037c9b0940cdaec7b8d12ad4605323089
+
+.git/objects/b3:
+total 4
+-r--r--r-- 1 antoine antoine 1390 juin  27 14:47 b72b7c2a829d2c87e04aa86e67bd461b3e9f38
+
+.git/objects/b4:
+total 8
+-r--r--r-- 1 antoine antoine 1048 sept. 13 13:59 c913b9a8da3753848d5e4f89b2c410a766b8ee
+-r--r--r-- 1 antoine antoine  159 oct.   3 16:54 f971803d28a8cbb3a9cc6477bd3b454f9f7da2
+
+.git/objects/b7:
+total 4
+-r--r--r-- 1 antoine antoine 1251 sept. 13 13:59 a22b7f7748613b55a8379000d59d003ef4795d
+
+.git/objects/b8:
+total 4
+-r--r--r-- 1 antoine antoine 284 juin  27 14:47 4002f9b1ec13acd7f237a1b859b9be89ef15e8
+
+.git/objects/b9:
+total 8
+-r--r--r-- 1 antoine antoine  457 oct.   3 16:53 7585883fd37d89d2488d7631d70dea8340978f
+-r--r--r-- 1 antoine antoine 1120 juin  27 14:47 938717b4634425f30902f50939f6be929f8caf
+
+.git/objects/ba:
+total 12
+-r--r--r-- 1 antoine antoine 1220 juin  27 14:47 1fe4358cf02036af89c90c02704b578a494278
+-r--r--r-- 1 antoine antoine 1102 sept. 13 13:59 2f77aa65b7dc95d56ecd279f596eab092b36cd
+-r--r--r-- 1 antoine antoine 1129 juin  27 14:47 f97e78a8aa08ba34d2dfaf5382900a208241ba
+
+.git/objects/bb:
+total 4
+-r--r--r-- 1 antoine antoine 1097 sept. 13 13:59 18f90f5a78e65afc4634415460dc08ff3a57ec
+
+.git/objects/bc:
+total 20
+-r--r--r-- 1 antoine antoine  349 juin  27 14:47 35b3ad41f7ca7a4165faf2280b6dec503fc183
+-r--r--r-- 1 antoine antoine 1475 juin  27 14:47 374fe727e872229b4ddcea509911685c59841e
+-r--r--r-- 1 antoine antoine 1095 juin  27 14:47 54fa189e9f7ae313b640bb8b2d7b469b98f57e
+-r--r--r-- 1 antoine antoine 3251 sept. 13 13:59 8145c0802a9d53b69f5a98e9f4fc6a10fd4f32
+-r--r--r-- 1 antoine antoine 1295 juin  27 14:47 cc4a3d546a1f26b99c8a5fa8ea86265e7cf3b5
+
+.git/objects/bd:
+total 4
+-r--r--r-- 1 antoine antoine 1163 juin  27 14:47 63e025793e3c1775faf3ae1d8b6bb200c9fce8
+
+.git/objects/be:
+total 12
+-r--r--r-- 1 antoine antoine 7094 juin  27 14:47 0793e7fd6bf9f5606de8cf713fd4428a074d4d
+-r--r--r-- 1 antoine antoine  310 juin  27 14:47 94c48d1fda3b2c5978477e109031a6444c432c
+
+.git/objects/bf:
+total 20
+-r--r--r-- 1 antoine antoine  294 juin  27 14:47 4ba26e6cb5e8e8d41c7e52ffe35177b5188639
+-r--r--r-- 1 antoine antoine 1230 juin  27 14:47 9449ca1aa1f98f90b4dffd8675b24e102d0d76
+-r--r--r-- 1 antoine antoine  312 oct.   4 11:46 975dd2f32ebd726ec2233df9cff240db7c2113
+-r--r--r-- 1 antoine antoine 1338 sept. 13 13:59 c36725a05e02fd6757df985b1f2f1900ce39f2
+-r--r--r-- 1 antoine antoine 1382 juin  27 14:47 e78a1eb9f32001fd7bdea117debae18e81c558
+
+.git/objects/c0:
+total 8
+-r--r--r-- 1 antoine antoine 1227 juin  27 14:47 cda69b0b74a4b2221fd65fabe647c45347fffb
+-r--r--r-- 1 antoine antoine  320 juin  27 14:47 e2e0f9a15d7ef0797158461a5b6f337f1cad34
+
+.git/objects/c1:
+total 8
+-r--r--r-- 1 antoine antoine 320 juin  27 14:47 a81abed41890666041f1a1e9a367ded5218b25
+-r--r--r-- 1 antoine antoine 751 oct.   3 11:34 f2157f394221ea149d48cb2b95e497bbc669ee
+
+.git/objects/c2:
+total 8
+-r--r--r-- 1 antoine antoine 1131 juin  27 14:47 9a60478989ad1ad5ea9fd385dd10ed832c42f1
+-r--r--r-- 1 antoine antoine 1310 sept. 13 13:59 dcb18451b81d527e777514e407c5d5b2dcdf53
+
+.git/objects/c4:
+total 4
+-r--r--r-- 1 antoine antoine 2516 oct.   3 16:53 9db6e4a4148cd0ab8bce522d68e6bb58806ff7
+
+.git/objects/c6:
+total 4
+-r--r--r-- 1 antoine antoine 1278 sept. 13 13:59 7ea05df9fd6a4602bec9df8b8c740f2ce56ba0
+
+.git/objects/c8:
+total 4
+-r--r--r-- 1 antoine antoine 1233 juin  27 14:47 973af651e2bb581d3f4d2165bebbaa110a0b36
+
+.git/objects/c9:
+total 4
+-r--r--r-- 1 antoine antoine 1383 juin  27 14:47 0cf422c76a92d2c6850687881bb74a5b0d72e6
+
+.git/objects/ca:
+total 12
+-r--r--r-- 1 antoine antoine  478 oct.   3 11:34 8f8c569d62af5f1ae1940e3ab41e3424e53e67
+-r--r--r-- 1 antoine antoine  316 juin  27 14:47 d3b0229a0a22309db151e34662de83042e397a
+-r--r--r-- 1 antoine antoine 1307 oct.   3 16:53 ed9ef2303792c954de4abbc5b24125b402d1fb
+
+.git/objects/ce:
+total 12
+-r--r--r-- 1 antoine antoine  354 sept. 13 13:59 dd5f54ad5b4b23731abc635a994781762eb101
+-r--r--r-- 1 antoine antoine 1312 juin  27 14:47 efd8feb48ed0e5c2c658d1be91f4a696689935
+-r--r--r-- 1 antoine antoine 1177 juin  27 14:47 f869f9ea53e70f3cd3ccd569e6bb6359558d68
+
+.git/objects/cf:
+total 4
+-r--r--r-- 1 antoine antoine 1494 sept. 13 13:59 d8ac4ac4c23739a7ab34caff2d3cc2ee6f2f20
+
+.git/objects/d0:
+total 12
+-r--r--r-- 1 antoine antoine 1211 sept. 13 13:59 1c196b561580ff60cf133d61f75eafaaafe393
+-r--r--r-- 1 antoine antoine 3712 oct.   3 11:34 50f4f988b2c5dca1e9990261a2285e8f5f9d9c
+-r--r--r-- 1 antoine antoine  167 sept. 13 13:59 c8f52891d5fb2d4e43140006040732d8c87acf
+
+.git/objects/d2:
+total 4
+-r--r--r-- 1 antoine antoine 1012 sept. 13 13:59 7ad954c4bdedcc7ddf71d6ecc0b02b748b72df
+
+.git/objects/d3:
+total 12
+-r--r--r-- 1 antoine antoine 910 sept. 13 13:59 0d9d94c2abe547f3b513e39604eee8a23b941f
+-r--r--r-- 1 antoine antoine 271 juin  27 14:47 47beabef126cea45d7f1b1b7e930dedfaa24ab
+-r--r--r-- 1 antoine antoine 269 juin  27 14:47 5746b4b35847f90cf1a91c1a83aa7d9c75e21a
+
+.git/objects/d4:
+total 4
+-r--r--r-- 1 antoine antoine 1142 juin  27 14:47 4c6cd7c5f6527a187a5154bceaec5422710bf6
+
+.git/objects/d5:
+total 12
+-r--r--r-- 1 antoine antoine  723 oct.   3 11:34 1ed81e48f7d4f05ba381662aaaa5d51a8cae79
+-r--r--r-- 1 antoine antoine  300 juin  27 14:47 a0f242995ec0130d7c3ca14c6c20e1fc2e3f60
+-r--r--r-- 1 antoine antoine 1121 juin  27 14:47 c9a6b3547c51da92c967e998ef9e34b3523f59
+
+.git/objects/d6:
+total 52
+-r--r--r-- 1 antoine antoine 52866 sept. 13 13:59 9634dfc75699412c507e513db67503d6108792
+
+.git/objects/d7:
+total 8
+-r--r--r-- 1 antoine antoine  289 juin  27 14:47 033039b4c2641a8720295f6f858ca6a9c6da4e
+-r--r--r-- 1 antoine antoine 2264 juin  27 14:47 1884a1794a318c1e3aaee47c896d683d6a8932
+
+.git/objects/da:
+total 4
+-r--r--r-- 1 antoine antoine 1674 juin  27 14:47 349795c9fa1b7b75ad14781db7354a7f161b1b
+
+.git/objects/db:
+total 4
+-r--r--r-- 1 antoine antoine 1170 juin  27 14:47 e17a4338c472d550bc8b1ef9ed9ee460a7f655
+
+.git/objects/dc:
+total 8
+-r--r--r-- 1 antoine antoine 1336 juin  27 14:47 01851fc972709f7e76b7685dc5c4650f142009
+-r--r--r-- 1 antoine antoine 1403 sept. 13 13:59 7432542e6d982f850e80c4740a22c2a9389d9a
+
+.git/objects/e0:
+total 16
+-r--r--r-- 1 antoine antoine  404 juin  27 14:47 0c09beb45ef5e6956ac736e551bd455a8afdd7
+-r--r--r-- 1 antoine antoine 1132 juin  27 14:47 91f54f7a5dbbc4774762c0242f9af642763406
+-r--r--r-- 1 antoine antoine  472 juin  27 14:47 b5ad68dce83eb426e4069aecdbe7839aa5c61d
+-r--r--r-- 1 antoine antoine  325 juin  27 14:47 dd7a0bb16fbb06f00e6d39473f375838578a48
+
+.git/objects/e1:
+total 8
+-r--r--r-- 1 antoine antoine 1376 sept. 13 13:59 5bb96af9706ee2116ae58a05d55c53bf9b9853
+-r--r--r-- 1 antoine antoine  870 sept. 13 13:59 fbf8f839b312ceed298b58b3771d2c696568e7
+
+.git/objects/e3:
+total 4
+-r--r--r-- 1 antoine antoine 2365 sept. 14 11:30 b25938abf7992c70ac2c5a315428ebb915e8d4
+
+.git/objects/e4:
+total 8
+-r--r--r-- 1 antoine antoine 1397 sept. 13 13:59 d8e6ed02dfe107aafa53a8d6494ea21020fe53
+-r--r--r-- 1 antoine antoine 1180 sept. 13 13:59 d922dd398197df1e08e86d0f41b032b819331b
+
+.git/objects/e5:
+total 4
+-r--r--r-- 1 antoine antoine 1244 juin  27 14:47 793f5dcf2d81c1873a948d8cad0f3c89ae4219
+
+.git/objects/e6:
+total 12
+-r--r--r-- 1 antoine antoine 2845 sept. 13 13:59 1df35d0e8418d182b3468151684ba367ff6088
+-r--r--r-- 1 antoine antoine 1111 sept. 13 13:59 99aecf7aa0787aa82204e8a316bd2d9ff5e7b0
+-r--r--r-- 1 antoine antoine   15 sept. 14 11:30 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+
+.git/objects/e7:
+total 4
+-r--r--r-- 1 antoine antoine 287 juin  27 14:47 626dbb76a7e17f803038dbf41831957a08c5c0
+
+.git/objects/ea:
+total 4
+-r--r--r-- 1 antoine antoine 567 juin  27 14:47 5000ae74ee0cd4683cc50240e4584c9af80c66
+
+.git/objects/eb:
+total 12
+-r--r--r-- 1 antoine antoine 316 juin  27 14:47 41ad57aca323181dab3bbc4bc170fe7dbec5db
+-r--r--r-- 1 antoine antoine 895 sept. 13 13:59 b4fdf21e48558151994c53df688f7271775769
+-r--r--r-- 1 antoine antoine 356 juin  27 14:47 efaa5ea998e78a631a0dd95e9beb60964d6096
+
+.git/objects/ec:
+total 4
+-r--r--r-- 1 antoine antoine 373 juin  27 14:47 6efba5ad5950a29c1f60806cb5b401825cf794
+
+.git/objects/ed:
+total 8
+-r--r--r-- 1 antoine antoine 1341 juin  27 14:47 492f3f8e2f043ae27e215999e3795cdd86de20
+-r--r--r-- 1 antoine antoine  384 juin  27 14:47 761bd52f4c2271653979552324379172155f60
+
+.git/objects/ee:
+total 4
+-r--r--r-- 1 antoine antoine 300 juin  27 14:47 a326e96506cbc02f0f3e662a80d248ce4933d4
+
+.git/objects/ef:
+total 8
+-r--r--r-- 1 antoine antoine 1480 juin  27 14:47 6351963ffdd1066842bb824478cf3f72a9472c
+-r--r--r-- 1 antoine antoine  454 juin  27 14:47 b8e75cc1692d9180d686239f20c4c0a9bd254d
+
+.git/objects/f0:
+total 4
+-r--r--r-- 1 antoine antoine 1218 juin  27 14:47 4bf9df2c5fa3b247e43098526de107e062ea41
+
+.git/objects/f1:
+total 8
+-r--r--r-- 1 antoine antoine 1023 juin  27 14:47 6f6ac8de80c10dfd786676be8cd388b64790fc
+-r--r--r-- 1 antoine antoine   26 juin  27 14:47 794188c49ff6f1e567cf6749effafe1bbfcb48
+
+.git/objects/f2:
+total 12
+-r--r--r-- 1 antoine antoine  423 sept. 13 13:59 0d0c03c5485ba49b944953d165a614dfbb5033
+-r--r--r-- 1 antoine antoine 1276 juin  27 14:47 5a763a5ceb76eced67df911f5f82c0d1fbfea4
+-r--r--r-- 1 antoine antoine 1261 juin  27 14:47 e51d2278c63770e578d33e19876e05bf3a31b3
+
+.git/objects/f3:
+total 4
+-r--r--r-- 1 antoine antoine 1146 sept. 13 13:59 335548f5c44da430a664f8eda0db99471d7a9e
+
+.git/objects/f4:
+total 8
+-r--r--r-- 1 antoine antoine 1073 oct.   3 11:34 5ec621bc3f4ee22a23826463a8563727c9488e
+-r--r--r-- 1 antoine antoine  155 sept. 14 11:30 b42262e4f189af35c47907b08b4333e11984d2
+
+.git/objects/f5:
+total 16
+-r--r--r-- 1 antoine antoine  282 juin  27 14:47 0abe7cb698d66d216721caf5f376bade775537
+-r--r--r-- 1 antoine antoine  246 sept. 13 13:59 410b79d71a2364f7796aa7a95dd7136d70a3fc
+-r--r--r-- 1 antoine antoine 1197 juin  27 14:47 4488e6d3aa6a5e587f84429d43393fe8afd916
+-r--r--r-- 1 antoine antoine 1469 juin  27 14:47 8e20c78ed9df5405bad7110ec1cb40be84d265
+
+.git/objects/f7:
+total 4
+-r--r--r-- 1 antoine antoine 322 juin  27 14:47 84c8ec0fc20124db8e2a5cce255574d9711d38
+
+.git/objects/f8:
+total 8
+-r--r--r-- 1 antoine antoine  893 sept. 13 13:59 74c8197643fbb995351309fedb0c642e4b54c8
+-r--r--r-- 1 antoine antoine 1171 oct.   3 16:53 8d0984c2079f33f67d8ae7b170707c5dbdf008
+
+.git/objects/f9:
+total 12
+-r--r--r-- 1 antoine antoine 1377 sept. 13 13:59 2c22ce0608c414828956abf3e8763cb1004750
+-r--r--r-- 1 antoine antoine  188 juin  27 14:47 2c4c6e03f62ab2ebb894f22b38831838c9497c
+-r--r--r-- 1 antoine antoine 2883 sept. 13 13:59 e43ac68ae8c7488d0de72a3a7b1e6fa7763b7c
+
+.git/objects/fa:
+total 4
+-r--r--r-- 1 antoine antoine 289 juin  27 14:47 2969beca0af1b47c5c46f1b27f288f16fe3819
+
+.git/objects/fb:
+total 52
+-r--r--r-- 1 antoine antoine 52886 oct.   3 11:34 818ccd6adba6bc41416919442b35922681779a
+
+.git/objects/fc:
+total 4
+-r--r--r-- 1 antoine antoine 369 juin  27 14:47 1df4b4c101edf85c671d5a8c472e1dab96dabe
+
+.git/objects/fe:
+total 8
+-r--r--r-- 1 antoine antoine 610 sept. 14 11:30 4a623e6fc04f386c4195b71355f8638c2c7f82
+-r--r--r-- 1 antoine antoine 163 oct.   3 11:34 e86135e1a5dad5ef68d68037584b892758fd39
+
+.git/objects/ff:
+total 4
+-r--r--r-- 1 antoine antoine 293 juin  27 14:47 06b96cc0ca65ad82c78148f4680dce4316d035
+
+.git/objects/info:
+total 0
+
+.git/objects/pack:
+total 0
+
+.git/refs:
+total 12
+drwxrwxr-x 2 antoine antoine 4096 oct.   4 11:46 heads
+drwxrwxr-x 3 antoine antoine 4096 juin  27 14:47 remotes
+drwxrwxr-x 2 antoine antoine 4096 juin  27 14:44 tags
+
+.git/refs/heads:
+total 4
+-rw-rw-r-- 1 antoine antoine 41 oct.   4 11:46 master
+
+.git/refs/remotes:
+total 4
+drwxrwxr-x 2 antoine antoine 4096 oct.   4 11:46 origin
+
+.git/refs/remotes/origin:
+total 4
+-rw-rw-r-- 1 antoine antoine 41 oct.   4 11:46 master
+
+.git/refs/tags:
+total 0

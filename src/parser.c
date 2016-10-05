@@ -2,6 +2,56 @@
 #include "../libft/includes/libft.h"
 #include "../includes/ft_ls.h"
 
+void	l_f_mod(t_larg **begin)
+{
+	t_larg	*tmp;
+	t_larg	*fold;
+	int	i;
+
+	fold = (*begin);
+	i = 0;
+	if (*begin)
+	{
+	tmp = (*begin)->content;
+		while (tmp)
+		{
+				ft_putendl(tmp->name);
+			tmp = tmp->next;
+			if (tmp && (set_option(0, 0) & (1U << 2)))
+			{
+				if (tmp->state != 2)
+					l_f_mod(&tmp);
+			}
+		}
+	}
+}
+
+void	read_content(t_larg **begin)
+{
+	t_larg	*tmp;
+	t_larg	*fold;
+
+	fold = (*begin);
+	if (*begin)
+	{
+		tmp = (*begin)->content;
+		while (tmp)
+		{
+			if (!(set_option(0, 0) & (1U << 2)))
+					ft_putstr(&tmp->name[ft_strlen(fold->name) + 1]);
+			if (tmp && (set_option(0, 0) & (1U << 2)))
+			{
+				ft_putstr("/:\n");
+				if (tmp->state != 2)
+					l_f_mod(&tmp);
+			}
+			ft_putchar('\t');
+			tmp = tmp->next;
+		}
+			ft_putchar('\n');
+	}
+}
+
 void	option_parser(char *str, t_ls *option)
 {
 
@@ -40,11 +90,11 @@ void	p_elem(t_larg *elem)
 		ft_putendl(elem->name);
 }
 
-void	l_mod(t_larg	*begin, void (*func)(t_larg*))
+void	l_mod(t_larg	**begin, void (*func)(t_larg*))
 {
 	t_larg	*tmp;
 
-	tmp = begin;
+	tmp = *begin;
 	if (begin)
 	{
 		while (tmp)
