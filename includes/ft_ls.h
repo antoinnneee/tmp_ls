@@ -17,6 +17,7 @@
 typedef struct	s_arglist{
 	unsigned int		state : 2;
 	char				*name;
+	struct stat		st;
 	struct s_arglist	*content;
 	struct s_arglist	*next;
 } t_larg;
@@ -35,9 +36,11 @@ void	p_elem(t_larg *elem);
 void	l_mod(t_larg **begin, void (*func)(t_larg*));
 void	option_parser(char *str, t_ls *option);
 void	arg_parser(int nbarg, char **str);
-void	push_file_in_list(t_larg **l_arg, char *str);
+void	push_file_in_list(t_larg **l_arg, char *str, int state);
 char	*secure_cat(char* dest, char *str);
+t_larg	*sort_first(t_larg *begin);
 unsigned int	set_option(unsigned int option, int state);
 void	l_f_mod(t_larg **begin);
 void	read_content(t_larg **begin);
+void	non_recursiv_read(t_larg **begin);
 #endif

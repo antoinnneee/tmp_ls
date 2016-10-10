@@ -8,11 +8,21 @@
 #include <sys/dir.h>
 #include <sys/stat.h>
 
+static t_larg	*alpha_sort(t_larg **begin);
+
 unsigned int	set_option(unsigned int option, int state)
 {
 	static unsigned int opt = 0;
-	if (state)
+	static unsigned int arg = 0;
+
+	if (state == 1)
 		opt = option;
+	else if (state == 2 && option != 0)
+	{
+			arg = option;
+	}
+	else if (state == 2)
+			return (arg);
 	return (opt);	
 }
 
@@ -44,7 +54,7 @@ static char	*standardize(char *str)
 
 }
 
-static t_larg	*creat_elem(char *str)
+static t_larg	*creat_elem(char **str, int state)
 {
 	t_larg	*tmp;
 	DIR	*dir;
@@ -58,8 +68,9 @@ static t_larg	*creat_elem(char *str)
 	tmp->content = NULL;
 	tmp->next = NULL;
 	dir = opendir(str);
+	lstat(str, &tmp->st);
 	tmp->state = 1;
-		tmp->name = standardize(tmp->name);
+	tmp->name = standardize(tmp->name);
 	if (dir == NULL)
 	{
 		tmp->state = 0;
@@ -92,27 +103,39 @@ static t_larg	*creat_elem(char *str)
 		}
 		if (errno == ENOENT)
 		{
-			ft_putendl(str);
-			ft_putendl("DIR NOT EXIST");
-			exit(0);
+			tmp->state = 2;
 		}
 	}
 	else
 	{
-		while ((ent = readdir(dir)))
-		{
-			if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, "."))
+			if (state)
 			{
-				push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name));
+				if (!(set_option(0,0) & (1U << 2)))
+					state = 0;
+				while ((ent = readdir(dir)))
+				{
+					if (!(ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, ".")) || ent->d_name[0] == '.')
+					{
+						if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, ".") && set_option(0, 0) & (1U << 3))
+							push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), state);	
+						else if (set_option(0, 0) & (1U << 3))
+							push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), 0);
+					}	
+					else if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, "."))
+						push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), state);
+					else if ((set_option(0,0) & (1U << 3)))
+						push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), 0);
+					tmp->content = alpha_sort(&tmp->content);
+				}
 			}
-				tmp->content = l_mod2(tmp->content, &l_sort_alpha);
-		}
+			else
+				tmp->state = 2;
 	}
 	closedir(dir);
 	return (tmp);
 }
 
-void	push_file_in_list(t_larg **begin, char *str)
+void	push_file_in_list(t_larg **begin, char *str, int state)
 {
 	t_larg	*tmp;
 	t_larg	*index;
@@ -120,8 +143,8 @@ void	push_file_in_list(t_larg **begin, char *str)
 	index = *begin;
 			//				add condition ici pour ajouter les "./.." a la liste
 	
-	tmp = creat_elem(str);
-	if (tmp->state)
+	tmp = creat_elem(str, state);
+	if (tmp && tmp->state)
 	{
 		if (!index)
 		{
@@ -137,11 +160,17 @@ void	push_file_in_list(t_larg **begin, char *str)
 	}
 	else
 	{
-		ft_putstr("ls: ");
-		ft_putstr(tmp->name);
-		ft_putendl(": No Such file or directory");
+		if (tmp)
+		{
+			if (state)
+			{
+				ft_putstr("ls: ");
+				ft_putstr(tmp->name);
+				ft_putendl(": No Such file or directory");
+		}
 		free(tmp->name);
 		free(tmp);
+		}
 	}
 	return ;
 }
@@ -154,7 +183,7 @@ static int	get_option(int nbarg, char **str, t_ls *ls_param)
 	while ((arg < nbarg) && (str[arg][0] == '-'))
 	{
 		ft_putstr("arg : str ::");
-		ft_putstrnb(str[arg], arg);
+		ft_putstr(str[arg]);
 		option_parser(str[arg], ls_param);
 		arg++;
 	}
@@ -180,28 +209,6 @@ static void	free_content(t_larg *elem)
 		}
 }
 
-static void	old_read_content(t_larg *elem)
-{
-	t_larg *tmp;
-	tmp = elem->content;
-	if (tmp)
-	{
-		if (tmp->state == 2)
-		{
-			ft_putstr("FOLDER : ");
-			ft_putendl(elem->name);
-		}
-		while (tmp)
-		{
-			if (tmp != elem->content)
-			ft_putendl(tmp->name);
-			if (tmp->state != 2)
-				read_content(tmp);
-			tmp = tmp->next;
-		}
-	}
-}
-
 static void	print_folder(t_larg *tmp)
 {
 	if (tmp->state == 1)
@@ -217,6 +224,72 @@ static void	print_file(t_larg *tmp)
 		ft_putendl(tmp->name);	
 }
 
+static void	print_content(t_larg **data)
+{
+	t_larg	*tmp;
+
+	tmp = *data;
+	while (tmp)
+	{
+		if (tmp != *data)
+			ft_putstr("\n\n");
+		if (set_option(0, 0) & (1U << 2))
+			read_content(&tmp);
+		else
+			non_recursiv_read(&tmp);
+			tmp = tmp->next;
+	}
+		ft_putchar('\n');
+}
+
+static int	is_list_sort(t_larg **begin)
+{
+	t_larg *elem;
+
+	elem = (*begin);
+	while(elem)
+	{
+		if (elem->next && elem->next->name)
+			if (!is_sort(elem->name, elem->next->name))
+				return (0);
+		elem = elem->next;
+	}
+	return(1);
+}
+
+static void	ft_swap(t_larg **begin)
+{
+	t_larg	*first;
+	t_larg	*last;
+	t_larg	*tmp;
+
+	first = *begin;
+	last = first->next;
+	tmp = last->next;
+	last->next = first;
+	first->next = tmp;
+	*begin = last;
+}
+
+static t_larg	*alpha_sort(t_larg **data)
+{
+	t_larg	*tmp;
+
+	tmp = *data;
+		if (tmp != *data)
+			ft_putstr("\n\n");
+	while (!is_list_sort(&tmp))
+	{
+		if (!is_sort(tmp->name, tmp->next->name))
+			ft_swap(data);
+		else
+			tmp = l_mod2(tmp, &l_sort_alpha);
+	tmp = *data;
+	}
+		return (tmp);
+}
+
+
 void 	arg_parser(int nbarg, char **str)
 {
 	int		arg;
@@ -227,23 +300,24 @@ void 	arg_parser(int nbarg, char **str)
 	ls_param->l_arg = NULL;
 	arg = get_option(nbarg, str, ls_param);
 	set_option(ls_param->option, 1);
+	set_option(nbarg - arg, 2);
 	if (nbarg == arg)
 	{
-		push_file_in_list(&ls_param->l_arg, ".");
+		push_file_in_list(&ls_param->l_arg, ".", 1);
 	}
     while (arg < nbarg)
     {
-		push_file_in_list(&ls_param->l_arg, str[arg]);
+		push_file_in_list(&ls_param->l_arg, str[arg], 1);
 		arg++;
     }
 	t_larg	*argument;
+	ft_putstrnb(" --> option value : ", ls_param->option);
 	argument = ls_param->l_arg;
-	ft_putstrnb("option value : ", ls_param->option);
-	ls_param->l_arg = l_mod2(ls_param->l_arg, &l_sort_alpha);
-	ft_putendl("====== Print FOLDER ======");
-	l_mod(&argument, &print_folder);
+	argument = alpha_sort(&argument);
+//	ft_putendl("====== Print FOLDER ======");
+//	l_mod(&argument, &print_folder);
 //	ft_putendl("====== Print Content ======");
-	read_content(&argument);
+	print_content(&argument);
 	l_mod(&argument, &free_content);
 	free(ls_param);
 }
