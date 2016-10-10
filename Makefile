@@ -6,7 +6,7 @@
 #    By: abureau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/13 19:52:43 by abureau           #+#    #+#              #
-#    Updated: 2016/09/13 19:52:43 by abureau          ###   ########.fr        #
+#    Updated: 2016/10/10 13:39:31 by abureau          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,6 +14,7 @@ NAME = ls
 
 SRC = ./src/main.c \
 	./src/parser.c \
+	./src/print.c \
 	./src/sort.c \
 	./src/secure_cat.c
 

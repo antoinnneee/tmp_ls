@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/10 12:57:02 by abureau           #+#    #+#             */
+/*   Updated: 2016/10/10 16:29:50 by abureau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "../includes/ft_ls.h"
 #include "../includes/read.h"
@@ -9,6 +21,8 @@
 #include <sys/stat.h>
 
 static t_larg	*alpha_sort(t_larg **begin);
+static t_larg	*time_sort(t_larg **begin);
+static t_larg	*revalpha_sort(t_larg **data);
 
 unsigned int	set_option(unsigned int option, int state)
 {
@@ -26,6 +40,18 @@ unsigned int	set_option(unsigned int option, int state)
 	return (opt);	
 }
 
+static t_larg	*sort(t_larg **data,int state)
+{
+	if (state)
+	{
+		return (time_sort(data));
+	}
+	else
+		if (set_option(0, 0) & (1U << 4))
+		return(revalpha_sort(data));
+		else
+		return(alpha_sort(data));
+}
 static char	*standardize(char *str)
 {
 	int	i;
@@ -54,17 +80,19 @@ static char	*standardize(char *str)
 
 }
 
-static t_larg	*creat_elem(char **str, int state)
+static t_larg	*creat_elem(char *str, int state)
 {
 	t_larg	*tmp;
 	DIR	*dir;
 	struct dirent *ent;
+	int size;
 
 	tmp = (t_larg*) ft_memalloc(sizeof(t_larg));
 	if (!tmp)
 		ft_putendl("ERROR!!!!");
 	ft_bzero(&ent, sizeof(ent));
 	tmp->name = ft_strdup(str);
+	tmp->size = 0;
 	tmp->content = NULL;
 	tmp->next = NULL;
 	dir = opendir(str);
@@ -117,39 +145,40 @@ static t_larg	*creat_elem(char **str, int state)
 					if (!(ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, ".")) || ent->d_name[0] == '.')
 					{
 						if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, ".") && set_option(0, 0) & (1U << 3))
-							push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), state);	
+							size = (push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), state));
 						else if (set_option(0, 0) & (1U << 3))
-							push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), 0);
+							size = push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), 0);
 					}	
 					else if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, "."))
-						push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), state);
+						size = push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), state);
 					else if ((set_option(0,0) & (1U << 3)))
-						push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), 0);
-					tmp->content = alpha_sort(&tmp->content);
+						size = push_file_in_list(&tmp->content, secure_cat(secure_cat(tmp->name, "/"), ent->d_name), 0);
+					tmp->content = sort(&tmp->content, 0);
+					if ((set_option(0, 0) & (1U << 4)))
+						tmp->content = sort(&tmp->content, 1);
+					tmp->size += (size % 512) ? size / 512 + 1  : size / 512 ;
 				}
 			}
 			else
 				tmp->state = 2;
-	}
 	closedir(dir);
+	}
 	return (tmp);
 }
 
-void	push_file_in_list(t_larg **begin, char *str, int state)
+long long push_file_in_list(t_larg **begin, char *str, int state)
 {
 	t_larg	*tmp;
 	t_larg	*index;
 
 	index = *begin;
-			//				add condition ici pour ajouter les "./.." a la liste
-	
 	tmp = creat_elem(str, state);
 	if (tmp && tmp->state)
 	{
 		if (!index)
 		{
 			*begin = tmp;
-			return ;
+			return (tmp->st.st_size);
 		}
 		while (index->next != NULL)
 		{
@@ -157,6 +186,7 @@ void	push_file_in_list(t_larg **begin, char *str, int state)
 		}
 		//ft_putendl(index->name);
 		index->next = tmp;
+	return (tmp->st.st_size);
 	}
 	else
 	{
@@ -171,8 +201,8 @@ void	push_file_in_list(t_larg **begin, char *str, int state)
 		free(tmp->name);
 		free(tmp);
 		}
+	return (0);
 	}
-	return ;
 }
 
 static int	get_option(int nbarg, char **str, t_ls *ls_param)
@@ -182,8 +212,6 @@ static int	get_option(int nbarg, char **str, t_ls *ls_param)
 
 	while ((arg < nbarg) && (str[arg][0] == '-'))
 	{
-		ft_putstr("arg : str ::");
-		ft_putstr(str[arg]);
 		option_parser(str[arg], ls_param);
 		arg++;
 	}
@@ -209,37 +237,39 @@ static void	free_content(t_larg *elem)
 		}
 }
 
-static void	print_folder(t_larg *tmp)
+
+static int	is_list_sort_t(t_larg **begin)
 {
-	if (tmp->state == 1)
+	t_larg *elem;
+
+	elem = (*begin);
+	while(elem)
 	{
-		ft_putstr(tmp->name);	
-		ft_putstr("/:\n");
+		if (elem->next)
+		{
+			if (!is_sort_t(elem->st, elem->next->st))
+			{
+				return (0);
+			}
+		}
+		elem = elem->next;
 	}
+	return(1);
 }
 
-static void	print_file(t_larg *tmp)
+static int	is_list_sort_ra(t_larg **begin)
 {
-	if (tmp->state == 2)
-		ft_putendl(tmp->name);	
-}
+	t_larg *elem;
 
-static void	print_content(t_larg **data)
-{
-	t_larg	*tmp;
-
-	tmp = *data;
-	while (tmp)
+	elem = (*begin);
+	while(elem)
 	{
-		if (tmp != *data)
-			ft_putstr("\n\n");
-		if (set_option(0, 0) & (1U << 2))
-			read_content(&tmp);
-		else
-			non_recursiv_read(&tmp);
-			tmp = tmp->next;
+		if (elem->next && elem->next->name)
+			if (is_sort(elem->name, elem->next->name))
+				return (0);
+		elem = elem->next;
 	}
-		ft_putchar('\n');
+	return(1);
 }
 
 static int	is_list_sort(t_larg **begin)
@@ -271,24 +301,57 @@ static void	ft_swap(t_larg **begin)
 	*begin = last;
 }
 
+static t_larg	*time_sort(t_larg **data)
+{
+	t_larg	*tmp;
+
+	tmp = *data;
+	while (!is_list_sort_t(&tmp))
+	{
+		if (!is_sort_t(tmp->st, tmp->next->st))
+		{
+					ft_swap(data);
+		}
+		else
+		{
+			tmp = l_mod2(tmp, &l_sort_time, 1);
+		}
+			tmp = *data;
+	}
+	return (tmp);
+}
+
+static t_larg	*revalpha_sort(t_larg **data)
+{
+	t_larg	*tmp;
+
+	tmp = *data;
+	while (!is_list_sort_ra(&tmp))
+	{
+		if (is_sort(tmp->name, tmp->next->name))
+			ft_swap(data);
+		else
+			tmp = l_mod2(tmp, &l_sort_revalpha, 2);
+		tmp = *data;
+	}
+	return (tmp);
+}
+
 static t_larg	*alpha_sort(t_larg **data)
 {
 	t_larg	*tmp;
 
 	tmp = *data;
-		if (tmp != *data)
-			ft_putstr("\n\n");
 	while (!is_list_sort(&tmp))
 	{
 		if (!is_sort(tmp->name, tmp->next->name))
 			ft_swap(data);
 		else
-			tmp = l_mod2(tmp, &l_sort_alpha);
-	tmp = *data;
+			tmp = l_mod2(tmp, &l_sort_alpha, 0);
+		tmp = *data;
 	}
-		return (tmp);
+	return (tmp);
 }
-
 
 void 	arg_parser(int nbarg, char **str)
 {
@@ -311,7 +374,6 @@ void 	arg_parser(int nbarg, char **str)
 		arg++;
     }
 	t_larg	*argument;
-	ft_putstrnb(" --> option value : ", ls_param->option);
 	argument = ls_param->l_arg;
 	argument = alpha_sort(&argument);
 //	ft_putendl("====== Print FOLDER ======");

@@ -6,6 +6,8 @@
 #include <sys/types.h>
 #include <time.h>
 #include <grp.h>
+
+
 void	l_f_mod(t_larg **begin)
 {
 	t_larg	*tmp;
@@ -30,104 +32,6 @@ void	l_f_mod(t_larg **begin)
 	}
 }
 
-static void	print_type(t_larg *file)
-{
-// S_IFDIR
-/*
-           switch (file->st.st_mode & S_IFMT) {
-           case S_IFBLK:  printf("block device\n");            break;
-           case S_IFCHR:  printf("character device\n");        break;
-           case S_IFDIR:  printf("directory\n");               break;
-           case S_IFIFO:  printf("FIFO/pipe\n");               break;
-           case S_IFLNK:  printf("symlink\n");                 break;
-           case S_IFREG:  printf("regular file\n");            break;
-           case S_IFSOCK: printf("socket\n");                  break;
-           default:       printf("unknown?\n");                break;
-           }
-*/
-	if ((file->st.st_mode & S_IFMT) == S_IFREG)
-		ft_putchar('-');
-	else if ((file->st.st_mode & S_IFMT) == S_IFDIR)
-		ft_putchar('d');
-	else if ((file->st.st_mode & S_IFMT) == S_IFCHR)
-		ft_putchar('c');
-	else if ((file->st.st_mode & S_IFMT) == S_IFLNK)
-		ft_putchar('l');
-	else if ((file->st.st_mode & S_IFMT) == S_IFBLK)
-		ft_putchar('b');
-	else if ((file->st.st_mode & S_IFMT) == S_IFIFO)
-		ft_putchar('p');
-	else if ((file->st.st_mode & S_IFMT) == S_IFSOCK)
-		ft_putchar('s');
-	else
-		ft_putchar('-');
-}
-
-static void	p_date(char *str)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = ft_strlen(str);
-	while (str[i] != ' ')
-		i++;	
-	while (str[j] != ':')
-		j--;
-	while(i < j)
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-}
-
-static void	print_perm(t_larg *fileStat)
-{
-    ft_putchar( (fileStat->st.st_mode & S_IRUSR) ? 'r' : '-');
-    ft_putchar( (fileStat->st.st_mode & S_IWUSR) ? 'w' : '-');
-    ft_putchar( (fileStat->st.st_mode & S_IXUSR) ? 'x' : '-');
-    ft_putchar( (fileStat->st.st_mode & S_IRGRP) ? 'r' : '-');
-    ft_putchar( (fileStat->st.st_mode & S_IWGRP) ? 'w' : '-');
-    ft_putchar( (fileStat->st.st_mode & S_IXGRP) ? 'x' : '-');
-    ft_putchar( (fileStat->st.st_mode & S_IROTH) ? 'r' : '-');
-    ft_putchar( (fileStat->st.st_mode & S_IWOTH) ? 'w' : '-');
-    ft_putchar( (fileStat->st.st_mode & S_IXOTH) ? 'x' : '-');
-	ft_putchar(' ');
-	ft_putnbr(fileStat->st.st_nlink);
-	ft_putchar(' ');
-	ft_putstr(getpwuid(fileStat->st.st_uid)->pw_name);
-	ft_putchar('\t');
-	ft_putstr(getgrgid(fileStat->st.st_gid)->gr_name);
-	ft_putchar('\t');
-    	ft_putnbr(fileStat->st.st_size);
-	ft_putchar('\t');
- 	p_date(ctime(&fileStat->st.st_mtime));
-	ft_putchar(' ');
-    	ft_putnbr(gmtime(&fileStat->st.st_mtime)->tm_year + 1900);
-	ft_putchar(' ');
-}
-
-static void	print_elem(t_larg *fold, t_larg *file)
-{
-	if (file)
-	{
-		if (set_option(0, 0) & (1U << 0))
-		{
-			print_type(file);
-			print_perm(file);
-		}
-		if (file == fold)
-			ft_putstr(file->name);
-		else
-			ft_putstr(&file->name[ft_strlen(fold->name) + 1]);
-		if (set_option(0, 0) & (1U << 0))
-			ft_putstr("\n");
-		else
-			ft_putstr("\t");
-	}
-
-}
-
 void	read_content(t_larg **begin)
 {
 	t_larg	*file;
@@ -139,22 +43,25 @@ void	read_content(t_larg **begin)
 	if (*begin)
 	{
 		file = (*begin)->content;
-		print_elem(fold, fold);
-		if (fold->state == 1)
-			ft_putstr("/:\n");
 		if (file)
 			tmp = file;
+		print_elem(fold, fold);
 		while (tmp)
 		{
 			while (file)
 			{
+				if (set_option(0, 0) & (1U << 0))
+					ft_putstr("\n");
 				print_elem(fold, file);
 				file = file->next;
 			}
 			if (tmp->state == 1)
 			{
-				ft_putstr("\n\n");
+			ft_putstr("\n");
+			ft_putstr("\n");
 				read_content(&tmp);
+//				ft_putstr("total : ");
+//				ft_putnbr(file->size);
 			}
 			tmp = tmp->next;
 		}
@@ -176,8 +83,14 @@ void	non_recursiv_read(t_larg **begin)
 			if (set_option(0, 2) > 1)
 			{
 				ft_putstr(fold->name);
-				ft_putstr("/:\n");
+				ft_putstr(":\n");
 			}
+		if (set_option(0, 0) & (1U << 0))
+		{
+			ft_putstr("total : ");
+				ft_putnbr(fold->size);
+			ft_putendl("");
+		}
 		}
 		else
 			print_elem(fold, fold);
@@ -186,6 +99,8 @@ void	non_recursiv_read(t_larg **begin)
 //			ft_putstr(".\t..\t");
 		while (file)
 		{
+			if (fold->content != file && set_option(0, 0) & (1U << 0))
+				ft_putstr("\n");
 			print_elem(fold, file);
 			file = file->next;
 		}
@@ -220,12 +135,6 @@ void	option_parser(char *str, t_ls *option)
 	}
 	    str++;
 	}
-}
-
-void	p_elem(t_larg *elem)
-{
-	if (elem)
-		ft_putendl(elem->name);
 }
 
 void	l_mod(t_larg	**begin, void (*func)(t_larg*))
@@ -271,9 +180,19 @@ t_larg	*sort_first(t_larg *begin)
 	return(begin);
 }
 
-t_larg	*l_mod2(t_larg	*begin, void (*func)(t_larg*))
+static	int	chose_sort(t_larg *file1, t_larg	*file2,int state)
 {
-	t_larg	*tmp;
+	if (state == 1)
+		return (is_sort_t(file1->st, file2->st));
+	else if (state == 2)
+		return (!is_sort(file1->name, file2->name));
+	else
+		return (is_sort(file1->name, file2->name));
+}
+
+t_larg	*l_mod2(t_larg	*begin, void (*func)(t_larg*), int state)
+{
+		t_larg	*tmp;
 	t_larg	**t2;
 	tmp = begin;
 	if (tmp)
@@ -286,12 +205,12 @@ t_larg	*l_mod2(t_larg	*begin, void (*func)(t_larg*))
 				return (begin);
 			if (!tmp->next->next)
 				return (begin) ;
-				if (!is_sort(tmp->next->name, tmp->next->next->name))
+				if (!chose_sort(tmp->next, tmp->next->next, state))
 				{
 					func(tmp);
 					tmp = tmp->next;
 					tmp = begin;
-					if (!is_sort(tmp->name, tmp->next->name))
+					if (!chose_sort(tmp, tmp->next, state))
 					{
 							begin = tmp->next;
 							tmp = begin;
@@ -304,9 +223,3 @@ t_larg	*l_mod2(t_larg	*begin, void (*func)(t_larg*))
 	}
 	return (begin);
 }
-
-
-
-
-
-
