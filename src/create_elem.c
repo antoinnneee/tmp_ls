@@ -13,18 +13,17 @@ static void			recur_statement(int *state, t_larg **tmp, DIR **dir)
 		if (!(ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, ".")) || ent->d_name[0] == '.')
 		{
 			if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, ".") && set_option(0, 0) & (1U << 3))
-				size = (push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), *state));
+				push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), *state);
 			else if (set_option(0, 0) & (1U << 3))
-				size = push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), 0);
+				push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), 0);
 		}	
 		else if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, "."))
-			size = push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), *state);
+			size += push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), *state);
 		else if ((set_option(0,0) & (1U << 3)))
-			size = push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), 0);
+			size += push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), 0);
 		(*tmp)->content = sort(&(*tmp)->content, 0);
 		if ((set_option(0, 0) & (1U << 4)))
 			(*tmp)->content = sort(&(*tmp)->content, 1);
-		(*tmp)->size += (size % 512) ? size / 512 + 1  : size / 512 ;
 	}
 }
 

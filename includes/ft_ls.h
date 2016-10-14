@@ -43,6 +43,7 @@ t_larg				*sort(t_larg **data,int state);
 char				*standardize(char *);
 char				*ft_lltoa_base(u64 value, unsigned int base, int signe);
 char				*secure_cat(char* dest, char *str);
+void				size_setter(t_larg **data);
 void				fold_a(t_larg	*file);
 void				print_type(t_larg *file);
 void				print_perm(t_larg *file);

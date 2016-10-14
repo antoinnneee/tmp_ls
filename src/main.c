@@ -6,10 +6,9 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 12:57:02 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/10 16:29:50 by abureau          ###   ########.fr       */
+/*   Updated: 2016/10/14 14:24:53 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/ft_ls.h"
 #include "../includes/read.h"
@@ -91,6 +90,7 @@ void 	arg_parser(int nbarg, char **str)
 	t_larg	*argument;
 	argument = ls_param->l_arg;
 	argument = alpha_sort(&argument);
+	size_setter(&argument);
 	print_content(&argument, &argument);
 	l_mod(&argument, &free_content);
 	free(ls_param);

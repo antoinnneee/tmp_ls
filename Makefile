@@ -5,26 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abureau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/10/13 16:10:27 by abureau           #+#    #+#              #
-#    Updated: 2016/10/13 16:10:27 by abureau          ###   ########.fr        #
+#    Created: 2016/10/14 14:19:15 by abureau           #+#    #+#              #
+#    Updated: 2016/10/14 14:19:15 by abureau          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = ls
 
-SRC = ./src/creat_elem_b.c \
-	./src/print_addon.c \
-	./src/secure_cat.c \
+SRC = ./src/main.c \
 	./src/l_mod.c \
-	./src/lltoa_base.c \
-	./src/create_elem.c \
-	./src/is_sort.c \
-	./src/main.c \
-	./src/more_sort.c \
-	./src/read.c \
-	./src/parser.c \
 	./src/sort.c \
-	./src/print.c
+	./src/parser.c \
+	./src/is_sort.c \
+	./src/secure_cat.c \
+	./src/lltoa_base.c \
+	./src/size.c \
+	./src/read.c \
+	./src/creat_elem_b.c \
+	./src/more_sort.c \
+	./src/create_elem.c \
+	./src/print.c \
+	./src/print_addon.c
 
 CC = gcc
 
