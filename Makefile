@@ -5,24 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abureau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/09/13 19:52:43 by abureau           #+#    #+#              #
-#    Updated: 2016/10/10 13:39:31 by abureau          ###   ########.fr        #
+#    Created: 2016/10/13 16:10:27 by abureau           #+#    #+#              #
+#    Updated: 2016/10/13 16:10:27 by abureau          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = ls
 
-SRC = ./src/main.c \
+SRC = ./src/creat_elem_b.c \
+	./src/print_addon.c \
+	./src/secure_cat.c \
+	./src/l_mod.c \
+	./src/lltoa_base.c \
+	./src/create_elem.c \
+	./src/is_sort.c \
+	./src/main.c \
+	./src/more_sort.c \
+	./src/read.c \
 	./src/parser.c \
-	./src/print.c \
 	./src/sort.c \
-	./src/secure_cat.c
+	./src/print.c
 
 CC = gcc
 
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -g -Wall -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 all: LIBCOMPILE $(NAME)
 

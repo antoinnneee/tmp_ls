@@ -11,6 +11,5 @@ char	*secure_cat(char *dest, char *str)
 	ft_strcpy(&mstr[ft_strlen(mstr)], str);
 	mstr[llen] = '\0';
 	return (mstr);	
-
 }
 

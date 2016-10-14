@@ -10,6 +10,7 @@
 #include <dirent.h>
 #include <sys/stat.h>
 
+typedef unsigned long long u64;
 /*
  *	struct : state : 1 = folder, 2 = files, 0 = doesn't exist
  */
@@ -17,7 +18,7 @@
 typedef struct	s_arglist{
 	unsigned int		state : 2;
 	char				*name;
-	long long		size;
+	unsigned long long		size;
 	struct stat		st;
 	struct s_arglist	*content;
 	struct s_arglist	*next;
@@ -29,25 +30,45 @@ typedef	struct	s_lsparam{
 } t_ls;
 
 
-void	print_content(t_larg	**data);
-void	print_elem(t_larg *fold, t_larg *file);
-t_larg	*swap_elem(t_larg *begin, t_larg *prev);
-void	l_sort_revalpha(t_larg *elem);
-void	l_sort_alpha(t_larg *elem);
-void	l_sort_time(t_larg *elem);
-//void	l_content_sort(t_content *elem);
-t_larg*	l_mod2(t_larg *begin, void (*func)(t_larg*), int state);
-int		is_sort(char *s1, char *s2);
-int		is_sort_t(struct stat st1, struct stat st2);
-void	l_mod(t_larg **begin, void (*func)(t_larg*));
-void	option_parser(char *str, t_ls *option);
-void	arg_parser(int nbarg, char **str);
-long long	push_file_in_list(t_larg **l_arg, char *str, int state);
-char	*secure_cat(char* dest, char *str);
-t_larg	*sort_first(t_larg *begin);
-unsigned int	set_option(unsigned int option, int state);
-void	l_f_mod(t_larg **begin);
-void	read_content(t_larg **begin);
-void	non_recursiv_read(t_larg **begin);
+
+t_larg				*time_sort(t_larg **data);
+t_larg				*revalpha_sort(t_larg **data);
+t_larg				*alpha_sort(t_larg **data);
+t_larg				*swap_e(t_larg *begin, t_larg **prev);
+t_larg				*swap_elem(t_larg *begin, t_larg *prev);
+t_larg				*l_mod2(t_larg *begin, void (*func)(t_larg*), int state);
+t_larg				*init_elem(char *str, DIR **dir);
+t_larg				*sort_first(t_larg *begin);
+t_larg				*sort(t_larg **data,int state);
+char				*standardize(char *);
+char				*ft_lltoa_base(u64 value, unsigned int base, int signe);
+char				*secure_cat(char* dest, char *str);
+void				fold_a(t_larg	*file);
+void				print_type(t_larg *file);
+void				print_perm(t_larg *file);
+void				print_content(t_larg	**data, t_larg **prev);
+void				print_elem(t_larg *fold, t_larg *file);
+void				print_fold(char *str);
+void				p_date(char *str);
+void				print_size(unsigned long long size);
+void				ft_swap(t_larg **begin);
+void				l_sort_revalpha(t_larg *elem);
+void				l_sort_alpha(t_larg *elem);
+void				l_sort_time(t_larg *elem);
+void				l_mod(t_larg **begin, void (*func)(t_larg*));
+void				option_parser(char *str, t_ls *option);
+void				arg_parser(int nbarg, char **str);
+void				l_f_mod(t_larg **begin);
+void				read_content(t_larg **begin);
+void				non_recursiv_read(t_larg **begin);
+void				p_error();
+void				init_p_error(t_larg **tmp);
+int					is_sort(char *s1, char *s2);
+int					is_sort_t(struct stat st1, struct stat st2);
+int					is_list_sort_t(t_larg **begin);
+int					is_list_sort_ra(t_larg **begin);
+int					is_list_sort(t_larg **begin);
+unsigned int		set_option(unsigned int option, int state);
+unsigned long long	push_file(t_larg **l_arg, char *str, int state);
 
 #endif

@@ -13,7 +13,7 @@
 #include "../includes/ft_ls.h"
 #include "../libft/includes/libft.h"
 
-int			is_sort(char *s1, char *s2)
+int		is_sort(char *s1, char *s2)
 {
 	while (*s1 == *s2 && *s1 && *s2)
 		ft_inctwovar((int *)&s1, (int*)&s2);
@@ -23,31 +23,10 @@ int			is_sort(char *s1, char *s2)
 		return (0);
 	else if (!*s1)
 		return (1);
-	if (*s1 < 0)
-	{
-		if (*s2 < 0)
-		{
-			return ((*s1 <= *s2) ? 1 : 0);
-		}
-		else
-			return (0);
-	}
-	if (*s2 < 0)
-	{
-		if (*s1 < 0)
-		{
-			return ((*s1 <= *s2) ? 1 : 0);
-		}
-		else 
-			return (1);
-	}
-	if (*s1 < *s2)
-		return (1);
 	if (*s1 < *s2)
 		return (1);
 	else
 		return (0);
-	return (0);
 }
 
 int		is_sort_t(struct stat st1, struct stat st2)
@@ -56,22 +35,6 @@ int		is_sort_t(struct stat st1, struct stat st2)
 		return (0);
 	else
 		return (1);
-}
-
-t_larg	*swap_elem(t_larg *begin, t_larg *prev)
-{
-	t_larg	*elemF;
-	t_larg	*elemL;
-	t_larg	*tmp;
-
-	elemF = begin;
-	elemL = elemF->next;
-	tmp = elemL->next;
-	elemL->next = elemF;
-	elemF->next = tmp;
-	begin = elemL;
-	prev->next = begin;
-	return (begin);
 }
 
 void	l_sort_time(t_larg *elem)
