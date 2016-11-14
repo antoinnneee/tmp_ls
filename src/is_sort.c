@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   is_sort.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/17 12:47:50 by abureau           #+#    #+#             */
+/*   Updated: 2016/10/17 12:50:54 by abureau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_ls.h"
 
 int		is_list_sort_t(t_larg **begin)
 {
-	t_larg *elem;
+	t_larg	*elem;
 
 	elem = (*begin);
-	while(elem)
+	while (elem)
 	{
 		if (elem->next)
 		{
@@ -16,7 +28,7 @@ int		is_list_sort_t(t_larg **begin)
 		}
 		elem = elem->next;
 	}
-	return(1);
+	return (1);
 }
 
 int		is_list_sort_ra(t_larg **begin)
@@ -24,42 +36,44 @@ int		is_list_sort_ra(t_larg **begin)
 	t_larg *elem;
 
 	elem = (*begin);
-	while(elem)
+	while (elem)
 	{
 		if (elem->next && elem->next->name)
 			if (is_sort(elem->name, elem->next->name))
 				return (0);
 		elem = elem->next;
 	}
-	return(1);
+	return (1);
 }
 
 int		is_list_sort(t_larg **begin)
 {
-	t_larg *elem;
+	t_larg	*elem;
 
 	elem = (*begin);
-	while(elem)
+	while (elem)
 	{
 		if (elem->next && elem->next->name)
 			if (!is_sort(elem->name, elem->next->name))
 				return (0);
 		elem = elem->next;
 	}
-	return(1);
+	return (1);
 }
 
-t_larg	*sort(t_larg **data,int state)
+t_larg	*sort(t_larg **data, int state)
 {
 	if (state)
 	{
 		return (time_sort(data));
 	}
 	else
+	{
 		if (set_option(0, 0) & (1U << 4))
-			return(revalpha_sort(data));
+			return (revalpha_sort(data));
 		else
-			return(alpha_sort(data));
+			return (alpha_sort(data));
+	}
 }
 
 void	ft_swap(t_larg **begin)

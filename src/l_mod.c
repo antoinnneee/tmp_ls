@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   l_mod.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/17 12:51:11 by abureau           #+#    #+#             */
+/*   Updated: 2016/10/17 12:52:32 by abureau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_ls.h"
 
-static int		chose_sort(t_larg *file1, t_larg *file2,int state)
+static int		chose_sort(t_larg *file1, t_larg *file2, int state)
 {
 	if (state == 1)
 		return (is_sort_t(file1->st, file2->st));
@@ -15,10 +27,10 @@ t_larg			*sort_first(t_larg *begin)
 	t_larg	*tmp;
 
 	tmp = begin;
-	while(!is_sort(tmp->name, tmp->next->name))
+	while (!is_sort(tmp->name, tmp->next->name))
 		tmp = swap_e(tmp, &tmp);
 	begin = tmp;
-	return(begin);
+	return (begin);
 }
 
 void			l_mod(t_larg **begin, void (*func)(t_larg*))
@@ -36,7 +48,8 @@ void			l_mod(t_larg **begin, void (*func)(t_larg*))
 	}
 }
 
-static t_larg	*exec_func(t_larg *begin, void (*func)(t_larg*), t_larg *tmp, int state)
+static t_larg	*exec_func(t_larg *begin, void (*func)(t_larg*),
+		t_larg *tmp, int state)
 {
 	while (tmp)
 	{
@@ -68,9 +81,8 @@ t_larg			*l_mod2(t_larg *begin, void (*func)(t_larg*), int state)
 	{
 		if (tmp->next)
 		{
-			return (exec_func(begin ,func, tmp, state));
+			return (exec_func(begin, func, tmp, state));
 		}
 	}
 	return (begin);
 }
-

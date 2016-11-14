@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/14 12:56:07 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/10 16:44:09 by abureau          ###   ########.fr       */
+/*   Updated: 2016/10/17 15:36:18 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,19 @@ int		is_sort_t(struct stat st1, struct stat st2)
 
 void	l_sort_time(t_larg *elem)
 {
-	t_larg *prev;
+	t_larg	*prev;
+
 	prev = elem;
 	if (elem->next)
 		if (elem->next->next)
 			if (!is_sort_t(elem->next->st, elem->next->next->st))
-					elem->next = (swap_elem(elem->next, prev));
+				elem->next = (swap_elem(elem->next, prev));
 }
+
 void	l_sort_revalpha(t_larg *elem)
 {
-	t_larg *prev;
+	t_larg	*prev;
+
 	prev = elem;
 	if (elem->next)
 		if (elem->next->next)
@@ -58,11 +61,11 @@ void	l_sort_revalpha(t_larg *elem)
 
 void	l_sort_alpha(t_larg *elem)
 {
-	t_larg *prev;
+	t_larg	*prev;
+
 	prev = elem;
 	if (elem->next)
 		if (elem->next->next)
 			if (!is_sort(elem->next->name, elem->next->next->name))
 				elem->next = (swap_elem(elem->next, prev));
 }
-

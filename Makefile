@@ -5,27 +5,28 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abureau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/10/14 14:19:15 by abureau           #+#    #+#              #
-#    Updated: 2016/10/14 14:19:15 by abureau          ###   ########.fr        #
+#    Created: 2016/11/14 16:38:27 by abureau           #+#    #+#              #
+#    Updated: 2016/11/14 16:38:27 by abureau          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-NAME = ls
+NAME = ft_ls
 
-SRC = ./src/main.c \
-	./src/l_mod.c \
-	./src/sort.c \
-	./src/parser.c \
-	./src/is_sort.c \
-	./src/secure_cat.c \
-	./src/lltoa_base.c \
-	./src/size.c \
-	./src/read.c \
-	./src/creat_elem_b.c \
-	./src/more_sort.c \
+SRC = ./src/creat_elem_b.c \
 	./src/create_elem.c \
+	./src/is_sort.c \
+	./src/l_mod.c \
+	./src/lltoa_base.c \
+	./src/main.c \
+	./src/more_sort.c \
+	./src/parser.c \
 	./src/print.c \
-	./src/print_addon.c
+	./src/print_addon.c \
+	./src/read.c \
+	./src/secure_cat.c \
+	./src/size.c \
+	./src/sizu.c \
+	./src/sort.c
 
 CC = gcc
 

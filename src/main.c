@@ -6,12 +6,11 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 12:57:02 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/14 14:24:53 by abureau          ###   ########.fr       */
+/*   Updated: 2016/11/14 16:18:54 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
-#include "../includes/read.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,8 +20,8 @@
 
 unsigned int	set_option(unsigned int option, int state)
 {
-	static unsigned int opt = 0;
-	static unsigned int arg = 0;
+	static unsigned int	opt = 0;
+	static unsigned int	arg = 0;
 
 	if (state == 1)
 		opt = option;
@@ -32,14 +31,14 @@ unsigned int	set_option(unsigned int option, int state)
 	}
 	else if (state == 2)
 		return (arg);
-	return (opt);	
+	return (opt);
 }
 
-static int	get_option(int nbarg, char **str, t_ls *ls_param)
+static int		get_option(int nbarg, char **str, t_ls *ls_param)
 {
 	int	arg;
-	arg = 1;
 
+	arg = 1;
 	while ((arg < nbarg) && (str[arg][0] == '-'))
 	{
 		option_parser(str[arg], ls_param);
@@ -48,10 +47,11 @@ static int	get_option(int nbarg, char **str, t_ls *ls_param)
 	return (arg);
 }
 
-static void	free_content(t_larg *elem)
+static void		free_content(t_larg *elem)
 {
-	t_larg *tmp;
-	t_larg *tmp2;
+	t_larg	*tmp;
+	t_larg	*tmp2;
+
 	tmp = elem->content;
 	if (tmp)
 	{
@@ -67,27 +67,25 @@ static void	free_content(t_larg *elem)
 	}
 }
 
-void 	arg_parser(int nbarg, char **str)
+void			arg_parser(int nbarg, char **str)
 {
 	int		arg;
 	t_ls	*ls_param;
+	t_larg	*argument;
 
-	ls_param = (t_ls*) ft_memalloc(sizeof(t_ls));
+	ls_param = (t_ls*)ft_memalloc(sizeof(t_ls));
 	ls_param->option = 0;
 	ls_param->l_arg = NULL;
 	arg = get_option(nbarg, str, ls_param);
 	set_option(ls_param->option, 1);
 	set_option(nbarg - arg, 2);
 	if (nbarg == arg)
-	{
 		push_file(&ls_param->l_arg, ".", 1);
-	}
 	while (arg < nbarg)
 	{
 		push_file(&ls_param->l_arg, str[arg], 1);
 		arg++;
 	}
-	t_larg	*argument;
 	argument = ls_param->l_arg;
 	argument = alpha_sort(&argument);
 	size_setter(&argument);
@@ -96,8 +94,8 @@ void 	arg_parser(int nbarg, char **str)
 	free(ls_param);
 }
 
-int	main(int a, char **b)
+int				main(int a, char **b)
 {
 	arg_parser(a, b);
-	return 0;
+	return (0);
 }

@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   more_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/17 12:58:27 by abureau           #+#    #+#             */
+/*   Updated: 2016/10/17 12:59:14 by abureau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_ls.h"
 
 t_larg	*swap_elem(t_larg *begin, t_larg *prev)
 {
-	t_larg	*elemF;
-	t_larg	*elemL;
+	t_larg	*elemf;
+	t_larg	*eleml;
 	t_larg	*tmp;
 
-	elemF = begin;
-	elemL = elemF->next;
-	tmp = elemL->next;
-	elemL->next = elemF;
-	elemF->next = tmp;
-	begin = elemL;
+	elemf = begin;
+	eleml = elemf->next;
+	tmp = eleml->next;
+	eleml->next = elemf;
+	elemf->next = tmp;
+	begin = eleml;
 	prev->next = begin;
 	return (begin);
 }

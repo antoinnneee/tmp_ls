@@ -6,7 +6,7 @@
 #    By: abureau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/04 12:47:45 by abureau           #+#    #+#              #
-#    Updated: 2016/02/24 14:51:20 by abureau          ###   ########.fr        #
+#    Updated: 2016/11/14 16:38:54 by abureau          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -105,7 +105,7 @@ HEAD = ./includes/libft.h
 OBJ = $(OBJS:%=$(DIRSRC)%)
 OBJS = $(SRCS:.c=.o)
 
-CFLAGS = -g -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
