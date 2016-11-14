@@ -6,14 +6,14 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/30 12:30:24 by abureau           #+#    #+#             */
-/*   Updated: 2016/03/30 14:41:48 by abureau          ###   ########.fr       */
+/*   Updated: 2016/10/17 15:46:13 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "../includes/ft_ls.h"
 
-static int	length(u64 value, unsigned int base)
+static int	length(t_64 value, unsigned int base)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ static int	length(u64 value, unsigned int base)
 	return (i);
 }
 
-char		*ft_lltoa_base(u64 value, unsigned int base, int signe)
+char		*ft_lltoa_base(t_64 value, unsigned int base, int signe)
 {
 	int		len;
 	char	*str;

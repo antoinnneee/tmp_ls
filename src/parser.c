@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/17 12:59:41 by abureau           #+#    #+#             */
+/*   Updated: 2016/10/17 15:18:22 by abureau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "../includes/ft_ls.h"
@@ -36,8 +47,7 @@ static void		err_option(t_ls *option)
 
 void			option_parser(char *str, t_ls *option)
 {
-
-	while (*str != 0 )
+	while (*str != 0)
 	{
 		if (*str != 0)
 		{
@@ -62,17 +72,16 @@ void			option_parser(char *str, t_ls *option)
 
 t_larg			*swap_e(t_larg *begin, t_larg **prev)
 {
-	t_larg	*elemF;
-	t_larg	*elemL;
+	t_larg	*elemf;
+	t_larg	*eleml;
 	t_larg	*tmp;
 
-	elemF = begin;
-	elemL = elemF->next;
-	tmp = elemL->next;
-	elemL->next = elemF;
-	elemF->next = tmp;
-	begin = elemL;
+	elemf = begin;
+	eleml = elemf->next;
+	tmp = eleml->next;
+	eleml->next = elemf;
+	elemf->next = tmp;
+	begin = eleml;
 	(*prev) = begin;
 	return (begin);
 }
-

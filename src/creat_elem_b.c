@@ -1,15 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   creat_elem_b.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/17 12:26:27 by abureau           #+#    #+#             */
+/*   Updated: 2016/10/17 12:28:49 by abureau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_ls.h"
 
 char	*standardize(char *str)
 {
-	int	i;
-	int	j;
-	char 		*dest;
-
+	int		i;
+	int		j;
+	char	*dest;
 
 	i = ft_strlen(str);
 	j = ft_strlen(str);
-	while(i > 0)
+	while (i > 0)
 	{
 		if (str[i] == '/')
 		{
@@ -25,7 +36,6 @@ char	*standardize(char *str)
 	dest[j] = '\0';
 	free(str);
 	return (dest);
-
 }
 
 void	init_p_error(t_larg **tmp)
@@ -38,8 +48,7 @@ void	init_p_error(t_larg **tmp)
 	p_error();
 }
 
-
-void	p_error()
+void	p_error(void)
 {
 	if (errno == ENOMEM)
 	{
@@ -72,7 +81,7 @@ t_larg	*init_elem(char *str, DIR **dir)
 {
 	t_larg	*tmp;
 
-	tmp = (t_larg*) ft_memalloc(sizeof(t_larg));
+	tmp = (t_larg*)ft_memalloc(sizeof(t_larg));
 	if (!tmp)
 		ft_putendl("ERROR!!!!");
 	tmp->name = ft_strdup(str);

@@ -6,22 +6,20 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/14 14:41:20 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/14 14:49:57 by abureau          ###   ########.fr       */
+/*   Updated: 2016/10/17 15:56:03 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-static void			non_recursiv_size(t_larg **begin);
-static void			size_content(t_larg **begin);
-
-static void		read_e(t_larg **fold, t_larg **file, long long *size)
+static void			read_e(t_larg **fold, t_larg **file, long long *size)
 {
 	if (*fold)
 	{
 		if (file)
 		{
-			*size += ((*file)->st.st_size % 512) ? (*file)->st.st_size / 512 + 1 : (*file)->st.st_size / 512;
+			*size += ((*file)->st.st_size % 512) ?
+				(*file)->st.st_size / 512 + 1 : (*file)->st.st_size / 512;
 			(*fold)->size = *size;
 		}
 		if ((*file)->next)
@@ -29,7 +27,6 @@ static void		read_e(t_larg **fold, t_larg **file, long long *size)
 			read_e(fold, &(*file)->next, size);
 		}
 	}
-		//metre ici le clacul de la size//
 }
 
 static void			recur(t_larg **tmp)
@@ -57,7 +54,7 @@ static void			recur(t_larg **tmp)
 	}
 }
 
-static void			size_content(t_larg **begin)
+void				size_content(t_larg **begin)
 {
 	t_larg	*file;
 	t_larg	*fold;
@@ -76,11 +73,11 @@ static void			size_content(t_larg **begin)
 	}
 }
 
-static void			non_recursiv_size(t_larg **begin)
+void				non_recursiv_size(t_larg **begin)
 {
-	t_larg	*file;
-	t_larg	*fold;
-	long long		size;
+	t_larg		*file;
+	t_larg		*fold;
+	long long	size;
 
 	size = 0;
 	fold = (*begin);
@@ -92,22 +89,14 @@ static void			non_recursiv_size(t_larg **begin)
 	}
 }
 
-static void		size_cho(t_larg	**tmp)
-{
-	if (set_option(0, 0) & (1U << 2))
-		size_content(tmp);
-	else
-		non_recursiv_size(tmp);
-}
-
-void			size_setter(t_larg **data)
+void				size_setter(t_larg **data)
 {
 	t_larg	*tmp;
 
 	tmp = *data;
 	if (tmp)
 	{
-			size_cho(&tmp);
-			size_setter(&tmp->next);
+		size_cho(&tmp);
+		size_setter(&tmp->next);
 	}
 }

@@ -1,26 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_elem.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/17 12:29:26 by abureau           #+#    #+#             */
+/*   Updated: 2016/10/17 15:46:46 by abureau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_ls.h"
+
+static void			some_test(int *state, t_larg **tmp, t_dir *ent)
+{
+	if (ft_strcmp(ent->d_name, "..") &&
+			ft_strcmp(ent->d_name, ".") && set_option(0, 0) & (1U << 3))
+	{
+		push_file(&(*tmp)->content,
+				secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), *state);
+	}
+	else if (set_option(0, 0) & (1U << 3))
+	{
+		push_file(&(*tmp)->content,
+				secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), 0);
+	}
+}
 
 static void			recur_statement(int *state, t_larg **tmp, DIR **dir)
 {
-	int	size;
-	struct dirent *ent;
+	struct dirent	*ent;
 
-	size = 0;
-	if (!(set_option(0,0) & (1U << 2)))
+	if (!(set_option(0, 0) & (1U << 2)))
 		*state = 0;
 	while ((ent = readdir(*dir)))
 	{
-		if (!(ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, ".")) || ent->d_name[0] == '.')
-		{
-			if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, ".") && set_option(0, 0) & (1U << 3))
-				push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), *state);
-			else if (set_option(0, 0) & (1U << 3))
-				push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), 0);
-		}	
+		if (!(ft_strcmp(ent->d_name, "..") &&
+					ft_strcmp(ent->d_name, ".")) || ent->d_name[0] == '.')
+			some_test(state, tmp, ent);
 		else if (ft_strcmp(ent->d_name, "..") && ft_strcmp(ent->d_name, "."))
-			size += push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), *state);
-		else if ((set_option(0,0) & (1U << 3)))
-			size += push_file(&(*tmp)->content, secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), 0);
+			push_file(&(*tmp)->content, secure_cat(
+						secure_cat((*tmp)->name, "/"), ent->d_name), *state);
+		else if ((set_option(0, 0) & (1U << 3)))
+			push_file(&(*tmp)->content,
+					secure_cat(secure_cat((*tmp)->name, "/"), ent->d_name), 0);
 		(*tmp)->content = sort(&(*tmp)->content, 0);
 		if ((set_option(0, 0) & (1U << 4)))
 			(*tmp)->content = sort(&(*tmp)->content, 1);
@@ -30,7 +53,7 @@ static void			recur_statement(int *state, t_larg **tmp, DIR **dir)
 static t_larg		*creat_elem(char *str, int state)
 {
 	t_larg	*tmp;
-	DIR	*dir;
+	DIR		*dir;
 
 	tmp = init_elem(str, &dir);
 	if (dir == NULL)
@@ -84,5 +107,3 @@ unsigned long long	push_file(t_larg **begin, char *str, int state)
 		return (0);
 	}
 }
-
-

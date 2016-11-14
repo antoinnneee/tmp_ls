@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   secure_cat.c                                       :+:      :+:    :+:   */
+/*   sizu.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/17 15:23:05 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/17 15:23:38 by abureau          ###   ########.fr       */
+/*   Created: 2016/10/17 15:30:03 by abureau           #+#    #+#             */
+/*   Updated: 2016/10/17 15:33:57 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../includes/ft_ls.h"
 
-char	*secure_cat(char *dest, char *str)
+void		size_cho(t_larg **tmp)
 {
-	char	*mstr;
-	int		llen;
-
-	llen = ft_strlen(str) + ft_strlen(dest);
-	mstr = (char*)ft_memalloc(sizeof(char) * llen + 1);
-	ft_strcpy(mstr, dest);
-	ft_strcpy(&mstr[ft_strlen(mstr)], str);
-	mstr[llen] = '\0';
-	return (mstr);
+	if (set_option(0, 0) & (1U << 2))
+		size_content(tmp);
+	else
+		non_recursiv_size(tmp);
 }
