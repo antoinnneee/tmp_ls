@@ -12,20 +12,44 @@
 
 #include "../includes/ft_ls.h"
 
-static void			read_e(t_larg **fold, t_larg **file, long long *size)
+static void			read_e(t_larg **fold, t_larg **file, long long *size, int add)
 {
+	int	tmp;
+
+	tmp = 0;
 	if (*fold)
 	{
-		if (file)
+		if (!(((*file)->st.st_mode & S_IFMT) == S_IFLNK))
 		{
-			*size += ((*file)->st.st_size % 512) ?
-				(*file)->st.st_size / 512 + 1 : (*file)->st.st_size / 512;
+				
+			tmp = (*file)->st.st_size % 1024;
+			if (tmp == 0)
+			{
+					tmp = (*file)->st.st_size / 1024;
+					if (tmp % 4 == 0)
+						*size += (*file)->st.st_size / 1024 ;
+					else
+						*size += (*file)->st.st_size / 1024 + (4 - (tmp % 4));
+			}
+			else if ((((*file)->st.st_mode & S_IFMT) == S_IFDIR))
+				;
+			else
+			{
+				if ((*file)->st.st_size < 4096)
+				*size +=  4;
+				else
+				{
+					tmp = (*file)->st.st_size / 1024;
+					if (tmp % 4 == 0)
+						*size += (*file)->st.st_size / 1024 + 4;
+					else
+						*size += (*file)->st.st_size / 1024 + (4 - (tmp % 4));
+				}
+			}
 			(*fold)->size = *size;
 		}
 		if ((*file)->next)
-		{
-			read_e(fold, &(*file)->next, size);
-		}
+			read_e(fold, &(*file)->next, size, add + tmp);
 	}
 }
 
@@ -85,7 +109,7 @@ void				non_recursiv_size(t_larg **begin)
 	{
 		file = (*begin)->content;
 		if (file)
-			read_e(&fold, &file, &size);
+			read_e(&fold, &file, &size, 0);
 	}
 }
 

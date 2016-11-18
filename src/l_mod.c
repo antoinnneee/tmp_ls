@@ -15,7 +15,7 @@
 static int		chose_sort(t_larg *file1, t_larg *file2, int state)
 {
 	if (state == 1)
-		return (is_sort_t(file1->st, file2->st));
+		return (t_s(file1, file2));
 	else if (state == 2)
 		return (!is_sort(file1->name, file2->name));
 	else

@@ -38,17 +38,29 @@ char	*standardize(char *str)
 	return (dest);
 }
 
-void	init_p_error(t_larg **tmp)
+void	init_p_error(t_larg **tmp, char *str)
 {
 	(*tmp)->state = 0;
 	if (errno == ENOTDIR)
 		(*tmp)->state = 2;
 	if (errno == ENOENT)
+	{
 		(*tmp)->state = 0;
-	p_error();
+		ft_putstr("ls: cannot acces ");
+		if (!ft_strncmp((*tmp)->name, "//", 2))
+			ft_putstr(&(*tmp)->name[1]);
+		else
+			ft_putstr((*tmp)->name);
+		ft_putstr(": No such file or directory\n");
+	}
+	if (errno == EACCES)
+	{
+		(*tmp)->state = 3;
+	}
+	p_error(str);
 }
 
-void	p_error(void)
+void	p_error(char *str)
 {
 	if (errno == ENOMEM)
 	{
@@ -70,11 +82,6 @@ void	p_error(void)
 		ft_putendl("Not valid fd");
 		exit(0);
 	}
-	if (errno == EACCES)
-	{
-		ft_putendl("Permission denied");
-		exit(0);
-	}
 }
 
 t_larg	*init_elem(char *str, DIR **dir)
@@ -92,7 +99,10 @@ t_larg	*init_elem(char *str, DIR **dir)
 	tmp->state = 1;
 	tmp->name = standardize(tmp->name);
 	if ((tmp->st.st_mode & S_IFMT) == S_IFLNK)
-		tmp->state = 2;
+	{
+	    tmp->state = 2;
+	}
 	*dir = opendir(str);
+	tmp->dir = *dir;
 	return (tmp);
 }

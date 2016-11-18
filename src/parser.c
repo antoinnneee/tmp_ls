@@ -40,7 +40,7 @@ void			l_f_mod(t_larg **begin)
 
 static void		err_option(t_ls *option)
 {
-	ft_putendl("invalid option Phoque !");
+	ft_putendl("invalid option !");
 	free(option);
 	exit(-42);
 }

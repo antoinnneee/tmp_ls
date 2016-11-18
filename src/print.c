@@ -68,8 +68,44 @@ void			print_elem(t_larg *fold, t_larg *file)
 		if (!(set_option(0, 0) & (1U << 0)) && file->next && file != fold)
 			ft_putstr("\t");
 	}
+	free(str);
 }
 
+static void		print_cho(t_larg **tmp)
+{
+	if (set_option(0, 0) & (1U << 2))
+		non_recursiv_read(tmp);
+	else
+		non_recursiv_read(tmp);
+}
+
+void			print_content(t_larg **data, t_larg **prev)
+{
+	t_larg	*tmp;
+
+	tmp = *data;
+	if (tmp)
+	{
+	/*
+		if (!(set_option(0, 0) & (1U << 1)))
+		{
+			ft_putendl ("option found");
+			if (tmp != *prev && !(set_option(0, 0) & (1U << 2)))
+				ft_putchar('\n');
+			print_cho(&tmp);
+			//print_content(&tmp->next, &tmp);
+		}
+		else
+		{
+	*/
+			//print_content(&tmp->next, &tmp);
+			print_cho(&tmp);
+			if (tmp != *prev && !(set_option(0, 0) & (1U << 2)))
+				ft_putstr("\n\n");
+//		}
+	}
+}
+/*
 static void		print_cho(t_larg **tmp)
 {
 	if (set_option(0, 0) & (1U << 2))
@@ -77,7 +113,6 @@ static void		print_cho(t_larg **tmp)
 	else
 		non_recursiv_read(tmp);
 }
-
 void			print_content(t_larg **data, t_larg **prev)
 {
 	t_larg	*tmp;
@@ -101,3 +136,4 @@ void			print_content(t_larg **data, t_larg **prev)
 		}
 	}
 }
+*/

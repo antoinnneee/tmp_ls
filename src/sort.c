@@ -33,6 +33,10 @@ int		is_sort_t(struct stat st1, struct stat st2)
 {
 	if (st1.st_mtime < st2.st_mtime)
 		return (0);
+	else if (st1.st_mtime == st2.st_mtime)
+	{
+		return (2);
+	}
 	else
 		return (1);
 }
@@ -44,8 +48,10 @@ void	l_sort_time(t_larg *elem)
 	prev = elem;
 	if (elem->next)
 		if (elem->next->next)
-			if (!is_sort_t(elem->next->st, elem->next->next->st))
+			if (!t_s(elem->next, elem->next->next))
+			{
 				elem->next = (swap_elem(elem->next, prev));
+			}
 }
 
 void	l_sort_revalpha(t_larg *elem)

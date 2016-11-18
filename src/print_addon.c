@@ -66,8 +66,14 @@ void	print_perm(t_larg *filestat)
 
 void	print_fold(char *str)
 {
-	ft_putstr(str);
+		ft_putstr("\x1B[31m");
+	ft_putchar('\n');
+	if (!ft_strncmp(str, "//", 2))
+		ft_putstr(&str[1]);
+	else
+		ft_putstr(str);
 	ft_putstr(":\n");
+		ft_putstr("\x1B[0m");
 }
 
 void	print_size(unsigned long long size)
@@ -95,5 +101,7 @@ void	fold_a(t_larg *file)
 		ft_putstr("\x1B[0m");
 	}
 	else
+	{
 		ft_putendl(file->name);
+	}
 }

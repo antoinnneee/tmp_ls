@@ -14,21 +14,23 @@
 
 static void		color_set(t_larg *file)
 {
-	if ((file->st.st_mode & S_IFMT) == S_IFDIR)
+	if ((file->st.st_mode & S_IFMT) == S_IFCHR)
+		ft_putstr("\x1B[33m");
+	else if ((file->st.st_mode & S_IFMT) == S_IFDIR)
 		ft_putstr("\x1B[32m");
-	if ((file->st.st_mode & S_IFMT) == S_IFLNK)
+	else if ((file->st.st_mode & S_IFMT) == S_IFLNK)
 		ft_putstr("\x1B[36m");
 }
 
 static void		read_e(t_larg *fold, t_larg *file)
 {
-	color_set(file);
 	if (set_option(0, 0) & (1U << 1))
 	{
-		ft_putstr("\x1B[0m");
 		if (file->next)
 			read_e(fold, file->next);
+		color_set(file);
 		print_elem(fold, file);
+		ft_putstr("\x1B[0m");
 		if (set_option(0, 0) & (1U << 0))
 			ft_putchar('\n');
 		else if (file->next)
@@ -36,6 +38,7 @@ static void		read_e(t_larg *fold, t_larg *file)
 	}
 	else
 	{
+		color_set(file);
 		print_elem(fold, file);
 		ft_putstr("\x1B[0m");
 		if (set_option(0, 0) & (1U << 0))
@@ -111,13 +114,21 @@ void			non_recursiv_read(t_larg **begin)
 	{
 		if (fold->state == 1)
 		{
-			if (set_option(0, 2) > 1)
+			if (set_option(0, 2) > 1 || set_option(0, 0) & (1U << 2))
 				print_fold(fold->name);
 			if (set_option(0, 0) & (1U << 0))
 				print_size(fold->size);
 		}
-		else
-			print_elem(fold, fold);
+		else if (fold->state == 3)
+		{
+			ft_putstr("ls : cannot open directory ");
+			if (!ft_strncmp((fold)->name, "//", 2))
+				ft_putstr(&(fold)->name[1]);
+			else
+				ft_putstr((fold)->name);
+			ft_putstr(": permission denied\n");
+		
+		}
 		file = (*begin)->content;
 		if (file)
 			read_e(fold, file);

@@ -14,8 +14,8 @@
 
 void		size_cho(t_larg **tmp)
 {
-	if (set_option(0, 0) & (1U << 2))
-		size_content(tmp);
-	else
+//	if (set_option(0, 0) & (1U << 2))
+//		size_content(tmp);
+//	else
 		non_recursiv_size(tmp);
 }

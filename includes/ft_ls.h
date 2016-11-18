@@ -25,12 +25,13 @@ typedef unsigned long long	t_64;
 typedef struct dirent		t_dir;
 
 typedef struct			s_arglist{
-	unsigned int		state : 2;
+	unsigned int		state : 3;
 	char				*name;
 	unsigned long long	size;
 	struct stat			st;
 	struct s_arglist	*content;
 	struct s_arglist	*next;
+	DIR			*dir;
 }						t_larg;
 
 typedef struct			s_lsparam{
@@ -38,6 +39,7 @@ typedef struct			s_lsparam{
 	t_larg				*l_arg;
 }						t_ls;
 
+void					recur_statement(int *state, t_larg **tmp, DIR **dir);
 t_larg					*time_sort(t_larg **data);
 t_larg					*revalpha_sort(t_larg **data);
 t_larg					*alpha_sort(t_larg **data);
@@ -69,8 +71,8 @@ void					arg_parser(int nbarg, char **str);
 void					l_f_mod(t_larg **begin);
 void					read_content(t_larg **begin);
 void					non_recursiv_read(t_larg **begin);
-void					p_error();
-void					init_p_error(t_larg **tmp);
+void					p_error(char *str);
+void					init_p_error(t_larg **tmp, char *str);
 void					size_content(t_larg **begin);
 void					size_cho(t_larg **tmp);
 void					non_recursiv_size(t_larg **begin);
@@ -81,5 +83,6 @@ int						is_list_sort_ra(t_larg **begin);
 int						is_list_sort(t_larg **begin);
 unsigned int			set_option(unsigned int option, int state);
 unsigned long long		push_file(t_larg **l_arg, char *str, int state);
-
+unsigned long long		init_file(t_larg **l_arg, char *str, int state);
+int				t_s(t_larg *tmp, t_larg *tnext);
 #endif

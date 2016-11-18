@@ -21,7 +21,8 @@ int		is_list_sort_t(t_larg **begin)
 	{
 		if (elem->next)
 		{
-			if (!is_sort_t(elem->st, elem->next->st))
+			//if (!is_sort_t(elem->st, elem->next->st))
+			if (!t_s(elem, elem->next))
 			{
 				return (0);
 			}
@@ -69,10 +70,7 @@ t_larg	*sort(t_larg **data, int state)
 	}
 	else
 	{
-		if (set_option(0, 0) & (1U << 4))
-			return (revalpha_sort(data));
-		else
-			return (alpha_sort(data));
+		return (alpha_sort(data));
 	}
 }
 
