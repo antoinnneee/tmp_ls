@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 19:52:22 by abureau           #+#    #+#             */
-/*   Updated: 2016/11/18 21:58:33 by abureau          ###   ########.fr       */
+/*   Updated: 2016/11/18 22:06:33 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	p_denied(t_larg *fold)
 {
 	print_fold(fold->name);
 	ft_putstr("ls : cannot open directory ");
-	ft_putstr((ft_strncmp((fold)->name, "//", 2)) ? &(fold)->name[1]
-			: (fold)->name);
+	ft_putstr((ft_strncmp((fold)->name, "//", 2)) ? (fold)->name
+			: &(fold)->name[1]);
 	ft_putstr(": permission denied\n");
 }
 
