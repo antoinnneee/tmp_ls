@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 12:47:50 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/17 12:50:54 by abureau          ###   ########.fr       */
+/*   Updated: 2016/11/18 19:08:41 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		is_list_sort_t(t_larg **begin)
 	{
 		if (elem->next)
 		{
-			//if (!is_sort_t(elem->st, elem->next->st))
 			if (!t_s(elem, elem->next))
 			{
 				return (0);

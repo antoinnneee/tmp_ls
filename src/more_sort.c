@@ -6,13 +6,13 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 12:58:27 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/17 12:59:14 by abureau          ###   ########.fr       */
+/*   Updated: 2016/11/18 19:11:15 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-int	t_s(t_larg *tmp, t_larg *tnext)
+int		t_s(t_larg *tmp, t_larg *tnext)
 {
 	if (tmp->st.st_mtime < tnext->st.st_mtime)
 		return (0);
@@ -26,6 +26,7 @@ int	t_s(t_larg *tmp, t_larg *tnext)
 	else
 		return (1);
 }
+
 t_larg	*swap_elem(t_larg *begin, t_larg *prev)
 {
 	t_larg	*elemf;
@@ -81,7 +82,6 @@ t_larg	*time_sort(t_larg **data)
 	tmp = *data;
 	while (!is_list_sort_t(&tmp))
 	{
-		//if (!is_sort_t(tmp->st, tmp->next->st))
 		if (!t_s(tmp, tmp->next))
 		{
 			ft_swap(data);

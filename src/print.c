@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 13:29:21 by abureau           #+#    #+#             */
-/*   Updated: 2016/11/14 15:42:07 by abureau          ###   ########.fr       */
+/*   Updated: 2016/11/18 20:58:21 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void			print_elem(t_larg *fold, t_larg *file)
 				ft_putstr(str);
 			}
 		}
-		if (!(set_option(0, 0) & (1U << 0)) && file->next && file != fold)
-			ft_putstr("\t");
 	}
 	free(str);
 }
@@ -86,54 +84,8 @@ void			print_content(t_larg **data, t_larg **prev)
 	tmp = *data;
 	if (tmp)
 	{
-	/*
-		if (!(set_option(0, 0) & (1U << 1)))
-		{
-			ft_putendl ("option found");
-			if (tmp != *prev && !(set_option(0, 0) & (1U << 2)))
-				ft_putchar('\n');
-			print_cho(&tmp);
-			//print_content(&tmp->next, &tmp);
-		}
-		else
-		{
-	*/
-			//print_content(&tmp->next, &tmp);
-			print_cho(&tmp);
-			if (tmp != *prev && !(set_option(0, 0) & (1U << 2)))
-				ft_putstr("\n\n");
-//		}
+		print_cho(&tmp);
+		if (tmp != *prev && !(set_option(0, 0) & (1U << 2)))
+			ft_putstr("\n\n");
 	}
 }
-/*
-static void		print_cho(t_larg **tmp)
-{
-	if (set_option(0, 0) & (1U << 2))
-		read_content(tmp);
-	else
-		non_recursiv_read(tmp);
-}
-void			print_content(t_larg **data, t_larg **prev)
-{
-	t_larg	*tmp;
-
-	tmp = *data;
-	if (tmp)
-	{
-		if (!(set_option(0, 0) & (1U << 1)))
-		{
-			if (tmp != *prev && !(set_option(0, 0) & (1U << 2)))
-				ft_putchar('\n');
-			print_cho(&tmp);
-			print_content(&tmp->next, &tmp);
-		}
-		else
-		{
-			print_content(&tmp->next, &tmp);
-			print_cho(&tmp);
-			if (tmp != *prev && !(set_option(0, 0) & (1U << 2)))
-				ft_putstr("\n\n");
-		}
-	}
-}
-*/

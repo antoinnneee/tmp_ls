@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 12:26:27 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/17 12:28:49 by abureau          ###   ########.fr       */
+/*   Updated: 2016/11/18 19:16:58 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*standardize(char *str)
 	return (dest);
 }
 
-void	init_p_error(t_larg **tmp, char *str)
+void	init_p_error(t_larg **tmp)
 {
 	(*tmp)->state = 0;
 	if (errno == ENOTDIR)
@@ -57,10 +57,10 @@ void	init_p_error(t_larg **tmp, char *str)
 	{
 		(*tmp)->state = 3;
 	}
-	p_error(str);
+	p_error();
 }
 
-void	p_error(char *str)
+void	p_error(void)
 {
 	if (errno == ENOMEM)
 	{
@@ -100,7 +100,7 @@ t_larg	*init_elem(char *str, DIR **dir)
 	tmp->name = standardize(tmp->name);
 	if ((tmp->st.st_mode & S_IFMT) == S_IFLNK)
 	{
-	    tmp->state = 2;
+		tmp->state = 2;
 	}
 	*dir = opendir(str);
 	tmp->dir = *dir;

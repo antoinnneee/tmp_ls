@@ -6,50 +6,26 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/14 14:41:20 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/17 15:56:03 by abureau          ###   ########.fr       */
+/*   Updated: 2016/11/18 19:16:16 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-static void			read_e(t_larg **fold, t_larg **file, long long *size, int add)
+static void			read_e(t_larg **fold, t_larg **file, long long *size)
 {
 	int	tmp;
 
 	tmp = 0;
 	if (*fold)
 	{
-		if (!(((*file)->st.st_mode & S_IFMT) == S_IFLNK))
+		if (*file)
 		{
-				
-			tmp = (*file)->st.st_size % 1024;
-			if (tmp == 0)
-			{
-					tmp = (*file)->st.st_size / 1024;
-					if (tmp % 4 == 0)
-						*size += (*file)->st.st_size / 1024 ;
-					else
-						*size += (*file)->st.st_size / 1024 + (4 - (tmp % 4));
-			}
-			else if ((((*file)->st.st_mode & S_IFMT) == S_IFDIR))
-				;
-			else
-			{
-				if ((*file)->st.st_size < 4096)
-				*size +=  4;
-				else
-				{
-					tmp = (*file)->st.st_size / 1024;
-					if (tmp % 4 == 0)
-						*size += (*file)->st.st_size / 1024 + 4;
-					else
-						*size += (*file)->st.st_size / 1024 + (4 - (tmp % 4));
-				}
-			}
+			*size += (*file)->st.st_blocks;
 			(*fold)->size = *size;
 		}
 		if ((*file)->next)
-			read_e(fold, &(*file)->next, size, add + tmp);
+			read_e(fold, &(*file)->next, size);
 	}
 }
 
@@ -109,7 +85,7 @@ void				non_recursiv_size(t_larg **begin)
 	{
 		file = (*begin)->content;
 		if (file)
-			read_e(&fold, &file, &size, 0);
+			read_e(&fold, &file, &size);
 	}
 }
 

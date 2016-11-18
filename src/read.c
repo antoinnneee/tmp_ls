@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 15:22:26 by abureau           #+#    #+#             */
-/*   Updated: 2016/11/14 16:15:24 by abureau          ###   ########.fr       */
+/*   Updated: 2016/11/18 21:01:10 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,15 @@ static void		color_set(t_larg *file)
 
 static void		read_e(t_larg *fold, t_larg *file)
 {
-	if (set_option(0, 0) & (1U << 1))
-	{
-		if (file->next)
-			read_e(fold, file->next);
-		color_set(file);
-		print_elem(fold, file);
-		ft_putstr("\x1B[0m");
-		if (set_option(0, 0) & (1U << 0))
-			ft_putchar('\n');
-		else if (file->next)
-			ft_putchar('\t');
-	}
+	color_set(file);
+	print_elem(fold, file);
+	ft_putstr("\x1B[0m");
+	if (set_option(0, 0) & (1U << 0))
+		ft_putchar('\n');
 	else
-	{
-		color_set(file);
-		print_elem(fold, file);
-		ft_putstr("\x1B[0m");
-		if (set_option(0, 0) & (1U << 0))
-			ft_putchar('\n');
-		else if (file->next)
-			ft_putchar('\t');
-		else
-			ft_putchar('\n');
-		if (file->next)
-			read_e(fold, file->next);
-	}
+		ft_putchar('\n');
+	if (file->next)
+		read_e(fold, file->next);
 }
 
 void			recur(t_larg **tmp)
@@ -121,13 +104,7 @@ void			non_recursiv_read(t_larg **begin)
 		}
 		else if (fold->state == 3)
 		{
-			ft_putstr("ls : cannot open directory ");
-			if (!ft_strncmp((fold)->name, "//", 2))
-				ft_putstr(&(fold)->name[1]);
-			else
-				ft_putstr((fold)->name);
-			ft_putstr(": permission denied\n");
-		
+			p_denied(fold);
 		}
 		file = (*begin)->content;
 		if (file)

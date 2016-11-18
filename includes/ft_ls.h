@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 15:39:42 by abureau           #+#    #+#             */
-/*   Updated: 2016/10/17 15:45:19 by abureau          ###   ########.fr       */
+/*   Updated: 2016/11/18 20:50:44 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct			s_lsparam{
 	t_larg				*l_arg;
 }						t_ls;
 
+int						intlen(int nb);
 void					recur_statement(int *state, t_larg **tmp, DIR **dir);
 t_larg					*time_sort(t_larg **data);
 t_larg					*revalpha_sort(t_larg **data);
@@ -71,8 +72,8 @@ void					arg_parser(int nbarg, char **str);
 void					l_f_mod(t_larg **begin);
 void					read_content(t_larg **begin);
 void					non_recursiv_read(t_larg **begin);
-void					p_error(char *str);
-void					init_p_error(t_larg **tmp, char *str);
+void					p_error(void);
+void					init_p_error(t_larg **tmp);
 void					size_content(t_larg **begin);
 void					size_cho(t_larg **tmp);
 void					non_recursiv_size(t_larg **begin);
@@ -84,5 +85,10 @@ int						is_list_sort(t_larg **begin);
 unsigned int			set_option(unsigned int option, int state);
 unsigned long long		push_file(t_larg **l_arg, char *str, int state);
 unsigned long long		init_file(t_larg **l_arg, char *str, int state);
-int				t_s(t_larg *tmp, t_larg *tnext);
+int						t_s(t_larg *tmp, t_larg *tnext);
+void					process(t_larg **fold, int state);
+void					init_p(int nbarg, char **str, t_ls **ls_param, int arg);
+t_larg					*reverse(t_larg *list);
+void					p_denied(t_larg *fold);
+
 #endif
